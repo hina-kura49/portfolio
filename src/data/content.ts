@@ -180,6 +180,17 @@ export const books: Book[] = [
 export const caseStudies: CaseStudy[] = caseStudiesData as CaseStudy[]
 export const contributions: Contribution[] = [
   {
+    id: 'rust-issue-164904',
+    repository: 'rust-lang/rust',
+    issueUrl: 'https://github.com/rust-lang/rust/issues/164904',
+    resolutionUrl: 'https://github.com/rust-lang/rust/pull/165681',
+    title: 'Searcher の安全性契約に不足する条件を報告',
+    description: 'Rust標準ライブラリの文字列検索で、str::split が依存する安全性の条件が Searcher のドキュメントに明記されていない問題を、nightlyでの再現コードと実行結果を添えて報告。安全性要件を明文化する修正PR #165681 が2026年11月10日（UTC）にマージされ、Issueが解決済みになりました。担当したのは問題の検証・報告で、修正PRの実装は別のコントリビューターによるものです。',
+    status: 'resolved',
+    date: '2026-10-25',
+    languages: ['Rust'],
+  },
+  {
     id: 'rust-163371',
     repository: 'rust-lang/rust',
     pullRequestUrl: 'https://github.com/rust-lang/rust/pull/163371',

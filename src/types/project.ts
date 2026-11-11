@@ -14,10 +14,11 @@ export type Project = {
 export type Contribution = {
   id: string
   repository: string
-  pullRequestUrl: string
   title: string
   description: string
-  status: 'open' | 'merged' | 'closed'
   date: string
   languages: string[]
-}
+} & (
+  | { pullRequestUrl: string; status: 'open' | 'merged' | 'closed' }
+  | { issueUrl: string; resolutionUrl: string; status: 'resolved' }
+)
