@@ -11,20 +11,6 @@ export type DevelopmentWork = {
   url?: string
 }
 
-export type Book = {
-  imageUrl?: string
-  id: string
-  title: string
-  author: string
-  review?: string
-  status: 'unread' | 'reading' | 'read' | null
-  languages: string[]
-  fields: string[]
-  nickname?: string
-  recommended: boolean
-  url?: string
-}
-
 export type CaseStudy = {
   id: string
   title: string
@@ -165,16 +151,6 @@ export const developmentWorks: DevelopmentWork[] = [
   },
 ]
 // Editions and reading dates are intentionally omitted until confirmed.
-export const books: Book[] = [
-  { id: 'typescript-blueberry', imageUrl: '/images/books/typescript-blueberry.jpg', title: 'プロを目指す人のためのTypeScript入門', author: '鈴木 僚太', nickname: 'ブルーベリー本', languages: ['TypeScript'], fields: ['言語の基礎', '型システム'], status: null, recommended: false, url: 'https://gihyo.jp/book/2022/978-4-297-12747-3' },
-  { id: 'effective-typescript', imageUrl: '/images/books/effective-typescript.jpg', title: 'Effective TypeScript 第2版', author: 'Dan Vanderkam', languages: ['TypeScript'], fields: ['型システム', '実践・設計'], status: null, recommended: false, url: 'https://www.oreilly.co.jp/books/9784814401093/' },
-  { id: 'introducing-python', imageUrl: '/images/books/introducing-python.jpg', title: '入門 Python 3', author: 'Bill Lubanovic', languages: ['Python'], fields: ['言語の基礎'], status: null, recommended: false, url: 'https://www.oreilly.co.jp/books/9784873117386/' },
-  { id: 'effective-python', imageUrl: '/images/books/effective-python.jpg', title: 'Effective Python 第3版', author: 'Brett Slatkin', languages: ['Python'], fields: ['実践・設計'], status: null, recommended: false, url: 'https://www.oreilly.co.jp/books/9784814401338/' },
-  { id: 'ddia', imageUrl: '/images/books/ddia.jpg', title: 'データ指向アプリケーションデザイン', author: 'Martin Kleppmann', nickname: 'DDIA / イノシシ本', languages: [], fields: ['分散システム', 'データ設計'], status: 'unread', recommended: false, url: 'https://www.oreilly.co.jp/books/9784873118703/' },
-  { id: 'command-line-rust', imageUrl: '/images/books/rust-workbook.jpg', title: 'Rustの練習帳', author: 'Ken Youens-Clark', languages: ['Rust'], fields: ['言語の基礎', 'CLI・ツール'], status: 'unread', recommended: false, url: 'https://www.oreilly.co.jp/books/9784814400584/' },
-  { id: 'ruby-cherry', imageUrl: '/images/books/ruby-cherry.jpg', title: 'プロを目指す人のためのRuby入門', author: '伊藤 淳一', nickname: 'チェリー本', languages: ['Ruby'], fields: ['言語の基礎'], status: null, recommended: false, url: 'https://gihyo.jp/book/2017/978-4-7741-9397-7' },
-  { id: 'professional-react', imageUrl: '/images/books/professional-react.jpg', title: 'プロフェッショナルWebプログラミング React', author: '西畑 一馬・長谷川 広武・伊藤 祐策・扇田 心', languages: ['JavaScript', 'React'], fields: ['Webフロントエンド'], status: null, recommended: false, url: 'https://books.mdn.co.jp/books/3224303034/' },
-]
 // 公開してよい題材（自作の脆弱なアプリ・学習用ラボ・公開済みの報告など）だけを載せる。仕事の診断結果は載せない。
 // データは src/data/case-studies.json（機械で更新可能）。開示前のエントリは status: 'embargoed'
 // で詳細を持たず、sync-case-studies ワークフローが公開後に 'published' へ切り替える。

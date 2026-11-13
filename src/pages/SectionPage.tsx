@@ -4,7 +4,6 @@ import { SiteMenu } from '../components/SiteMenu'
 import { TopNav } from '../components/TopNav'
 import { Pointer } from '../components/Pointer'
 import { PersonalProfile } from '../components/PersonalProfile'
-import { Books } from '../components/Books'
 import { CaseStudies, CaseStudyDetail, findCaseStudy } from '../components/CaseStudies'
 import { Contributions } from '../components/Contributions'
 import { projects } from '../data/projects'
@@ -51,7 +50,6 @@ export function SectionPage({ pathname }: { pathname: string }) {
             <p className="section-description">{project.description}</p>
           </>}
           {project.id === 'development' && <Development />}
-          {project.id === 'books' && <Books />}
           {project.id === 'personal-portfolio' && <PersonalProfile />}
           {project.id === 'case-study' && <CaseStudies />}
           {project.id === 'open-source' && <Contributions />}

@@ -18,11 +18,11 @@
 
 </div>
 
-白を基調としたホームから、プロフィール・作品・脆弱性報告の事例・本・OSS 貢献のページへ移動できます。
+白を基調としたホームから、プロフィール・作品・脆弱性報告の事例・OSS 貢献のページへ移動できます。
 
-| 🧑 Personal | 🛠 Development | 🔐 Case Study | 📚 Books | 🌐 Open Source |
-| :---: | :---: | :---: | :---: | :---: |
-| 写真・経歴・使用技術 | 言語と分野で絞り込める作品一覧 | 許可された環境での脆弱性検証の記録 | 読んだ本・おすすめの本 | OSS への貢献の記録 |
+| 🧑 Personal | 🛠 Development | 🔐 Case Study | 🌐 Open Source |
+| :---: | :---: | :---: | :---: |
+| 写真・経歴・使用技術 | 言語と分野で絞り込める作品一覧 | 許可された環境での脆弱性検証の記録 | OSS への貢献の記録 |
 
 ## ローカルで起動
 
@@ -57,9 +57,9 @@ GitHub Actionsでもビルドとブラウザテストを実行します。
 | `/personal` | 写真、プロフィール、経歴、使用技術、関心、連絡先 |
 | `/development` | 言語と分野で絞り込める作品一覧 |
 | `/case-study` | 許可された環境での脆弱性検証の記録（事例ごとに `/case-study/1` などの独立ページ） |
-| `/books` | 読んだ本、おすすめの本 |
+| `/open-source` | ほかのリポジトリへの貢献（PR・報告） |
 
-Case Studyにはセキュリティ検証・脆弱性報告の事例、Developmentには作品、Booksには技術書8冊を掲載しています。Booksは言語・技術、分野、読書状況で絞り込めます。書籍の版・読了日・感想は確認できたものだけ追記します。Hono API・DB・管理画面は未実装で、コンテンツは静的データから表示します。
+Case Studyにはセキュリティ検証・脆弱性報告の事例、Developmentには作品、Open SourceにはOSSへの貢献を掲載しています。Hono API・DB・管理画面は未実装で、コンテンツは静的データから表示します。
 
 GitHub PagesではSettings → Pages → SourceをGitHub Actionsに設定します。mainへのpushで `npm run build:pages` が実行され、`dist` を公開します。公開URLは https://hina-kura49.github.io/portfolio/ です。各ページのHTMLも生成するため、直接アクセス・再読み込みに対応しています。通常の `npm run dev` は引き続きlocalhostのルートで動作します。
 

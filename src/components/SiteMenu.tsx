@@ -22,7 +22,7 @@ export function SiteMenu() {
             <a className="menu-home" href={sitePath()}>Home</a>
             {projects.map((project) => <a key={project.id} className="menu-works" href={sitePath(project.projectUrl)}><span>{project.number}</span>{project.title}</a>)}
           </nav>
-          <p>Profile, development, security & books.</p>
+          <p>Profile, development, security & open source.</p>
         </div>
       </dialog>
     </>

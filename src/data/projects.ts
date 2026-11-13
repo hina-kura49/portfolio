@@ -20,13 +20,7 @@ export const projects: Project[] = [
     imageUrl: '/images/icons/case-study.svg', projectUrl: '/case-study', technologies: [], published: true,
   },
   {
-    id: 'books', number: '04', title: 'Books',
-    category: 'Reading & Recommendations',
-    description: '自分が読んだ本と、おすすめしたい本。',
-    imageUrl: '/images/icons/books.svg', projectUrl: '/books', technologies: [], published: true,
-  },
-  {
-    id: 'open-source', number: '05', title: 'Open Source',
+    id: 'open-source', number: '04', title: 'Open Source',
     category: 'Contributions',
     description: 'ほかのリポジトリへの貢献について。',
     imageUrl: '/images/icons/open-source.svg', projectUrl: '/open-source', technologies: [], published: true,

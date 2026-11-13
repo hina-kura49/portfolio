@@ -47,7 +47,7 @@ test('entrance, hover handoff, fade out, menu and section links', async ({ page 
   expect(await page.evaluate(() => document.documentElement.scrollHeight <= innerHeight)).toBe(true)
   await page.screenshot({ path: test.info().outputPath('portfolio-home.png') })
   const rows = page.locator('.project-row')
-  await expect(rows).toHaveCount(5)
+  await expect(rows).toHaveCount(4)
   await rows.nth(0).hover()
   const before = await rows.nth(1).boundingBox()
   await expect(rows.nth(1)).toHaveCSS('opacity', '0.4')
@@ -72,9 +72,6 @@ test('entrance, hover handoff, fade out, menu and section links', async ({ page 
   await page.getByLabel('分野', { exact: true }).selectOption('セキュリティ')
   await page.getByRole('button', { name: '絞り込みを解除' }).click()
   await expect(page.getByLabel('言語', { exact: true })).toHaveValue('')
-  await page.goto('/books')
-  await page.getByRole('button', { name: 'おすすめ', exact: true }).click()
-  await expect(page.getByRole('button', { name: 'おすすめ', exact: true })).toHaveAttribute('aria-pressed', 'true')
   await page.goto('/personal')
   await expect(page.getByRole('link', { name: /GitHub @h-kurashina/ })).toHaveAttribute('href', 'https://github.com/h-kurashina')
   await expect(page.getByRole('link', { name: /X @hkurashina49/ })).toHaveAttribute('href', 'https://x.com/hkurashina49')
@@ -88,7 +85,7 @@ test('entrance, hover handoff, fade out, menu and section links', async ({ page 
 test('mobile layout and reduced motion remain usable', async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 })
   await page.emulateMedia({ reducedMotion: 'reduce' })
-  for (const path of ['/', '/personal', '/development', '/case-study', '/books', '/open-source']) {
+  for (const path of ['/', '/personal', '/development', '/case-study', '/open-source']) {
     await page.goto(path)
     await expect(page.locator('.works-content')).toHaveCSS('opacity', '1')
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true)
@@ -109,23 +106,8 @@ test('mobile layout and reduced motion remain usable', async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 })
   await page.screenshot({ path: test.info().outputPath('portfolio-mobile.png') })
   await page.getByRole('button', { name: 'Open menu' }).click()
-  await page.getByRole('link', { name: '04 Books' }).click()
-  await expect(page.getByRole('heading', { name: 'Books', exact: true })).toBeVisible()
-})
-
-test('books combine subject and reading filters and reset correctly', async ({ page }) => {
-  await page.goto('/books')
-  await expect(page.locator('.book-card')).toHaveCount(8)
-  await page.getByRole('button', { name: '未読', exact: true }).click()
-  await expect(page.locator('.book-card')).toHaveCount(2)
-  await expect(page.getByRole('heading', { name: 'データ指向アプリケーションデザイン' })).toBeVisible()
-  await page.getByLabel('言語・技術', { exact: true }).selectOption('Rust')
-  await expect(page.locator('.book-card')).toHaveCount(1)
-  await page.getByLabel('分野', { exact: true }).selectOption('分散システム')
-  await expect(page.locator('.book-card')).toHaveCount(0)
-  await page.getByRole('button', { name: '絞り込みを解除' }).click()
-  await expect(page.locator('.book-card')).toHaveCount(8)
-  await page.screenshot({ path: test.info().outputPath('portfolio-books.png'), fullPage: true })
+  await page.getByRole('link', { name: '04 Open Source' }).click()
+  await expect(page.getByRole('heading', { name: 'Open Source', exact: true })).toBeVisible()
 })
 
 test('open source lists contributions with pull request links and status badges', async ({ page }) => {

@@ -10,7 +10,7 @@ const caseRoutes = caseStudies
   .filter(Boolean)
 
 // Real HTML entry points support direct links and reloads on static hosting.
-const routes = ['personal', 'development', 'case-study', 'books', 'open-source', ...caseRoutes]
+const routes = ['personal', 'development', 'case-study', 'open-source', ...caseRoutes]
 for (const route of routes) {
   await mkdir(`dist/${route}`, { recursive: true })
   await copyFile('dist/index.html', `dist/${route}/index.html`)
