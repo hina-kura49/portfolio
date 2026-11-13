@@ -2,7 +2,7 @@ import { readFile } from 'node:fs/promises'
 import { pathToFileURL } from 'node:url'
 
 const AUTHOR = 'h-kurashina'
-const PORTFOLIO = 'h-kurashina/portfolio'
+const PORTFOLIO = 'hina-kura49/portfolio'
 const LABEL = 'new-contribution'
 // Own repositories, company work and friends' shared projects are not open source contributions.
 const EXCLUDED_OWNERS = ['h-kurashina', 'Beaulab-jp', 'tunakan11']

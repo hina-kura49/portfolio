@@ -1,13 +1,35 @@
+<div align="center">
+
+<img src="public/images/brand/hk.svg" alt="h.kurashina のロゴ" width="96" />
+
 # h.kurashina Portfolio
 
-React・TypeScript・Viteで作る個人ポートフォリオです。白を基調としたホームから、プロフィール・作品・発信・本の4ページへ移動できます。
+**React・TypeScript・Vite で作る個人ポートフォリオ**
+
+[![サイトを見る](https://img.shields.io/badge/%E2%96%B6_%E3%82%B5%E3%82%A4%E3%83%88%E3%82%92%E8%A6%8B%E3%82%8B-hina--kura49.github.io%2Fportfolio-111111?style=for-the-badge)](https://hina-kura49.github.io/portfolio/)
+
+[![Deploy Pages](https://github.com/hina-kura49/portfolio/actions/workflows/pages.yml/badge.svg)](https://github.com/hina-kura49/portfolio/actions/workflows/pages.yml)
+[![CI](https://github.com/hina-kura49/portfolio/actions/workflows/ci.yml/badge.svg)](https://github.com/hina-kura49/portfolio/actions/workflows/ci.yml)
+![React 19](https://img.shields.io/badge/React-19-61DAFB?logo=react&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-5.9-3178C6?logo=typescript&logoColor=white)
+![Vite](https://img.shields.io/badge/Vite-7-646CFF?logo=vite&logoColor=white)
+![Playwright](https://img.shields.io/badge/tested_with-Playwright-2EAD33?logo=playwright&logoColor=white)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+
+</div>
+
+白を基調としたホームから、プロフィール・作品・脆弱性報告の事例・本・OSS 貢献のページへ移動できます。
+
+| 🧑 Personal | 🛠 Development | 🔐 Case Study | 📚 Books | 🌐 Open Source |
+| :---: | :---: | :---: | :---: | :---: |
+| 写真・経歴・使用技術 | 言語と分野で絞り込める作品一覧 | 許可された環境での脆弱性検証の記録 | 読んだ本・おすすめの本 | OSS への貢献の記録 |
 
 ## ローカルで起動
 
 Node.js 22.12以上とnpmを使用します。
 
 ```sh
-git clone https://github.com/h-kurashina/portfolio.git
+git clone https://github.com/hina-kura49/portfolio.git
 cd portfolio
 npm ci
 npm run dev
@@ -39,7 +61,7 @@ GitHub Actionsでもビルドとブラウザテストを実行します。
 
 Case Studyにはセキュリティ検証・脆弱性報告の事例、Developmentには作品、Booksには技術書8冊を掲載しています。Booksは言語・技術、分野、読書状況で絞り込めます。書籍の版・読了日・感想は確認できたものだけ追記します。Hono API・DB・管理画面は未実装で、コンテンツは静的データから表示します。
 
-GitHub PagesではSettings → Pages → SourceをGitHub Actionsに設定します。mainへのpushで `npm run build:pages` が実行され、`dist` を公開します。公開URLは https://h-kurashina.github.io/portfolio/ です。各ページのHTMLも生成するため、直接アクセス・再読み込みに対応しています。通常の `npm run dev` は引き続きlocalhostのルートで動作します。
+GitHub PagesではSettings → Pages → SourceをGitHub Actionsに設定します。mainへのpushで `npm run build:pages` が実行され、`dist` を公開します。公開URLは https://hina-kura49.github.io/portfolio/ です。各ページのHTMLも生成するため、直接アクセス・再読み込みに対応しています。通常の `npm run dev` は引き続きlocalhostのルートで動作します。
 
 ## 自分用に変更する
 
