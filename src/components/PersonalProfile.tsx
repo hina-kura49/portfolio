@@ -21,14 +21,14 @@ export function PersonalProfile() {
           <div><dt>Outside of work</dt><dd>{biography.hobby}</dd></div>
         </dl>
         </div>
+        <div className="profile-about">
+          <h2 id="about-title" className="profile-about-title">About</h2>
+          <p className="profile-about-sub">開発を始めたきっかけ</p>
+          <p>{biography.motivation}</p>
+        </div>
       </section>
 
       <CveHighlights />
-
-      <section className="profile-section" aria-labelledby="about-title">
-        <div className="profile-section-heading"><h2 id="about-title">About</h2><p>開発を始めたきっかけ</p></div>
-        <p>{biography.motivation}</p>
-      </section>
 
       <section className="profile-section" aria-labelledby="experience-title">
         <div className="profile-section-heading"><h2 id="experience-title">Experience</h2><p>これまでの経歴</p></div>

@@ -55,7 +55,7 @@ export function CveHighlights() {
   const reported = caseStudies.filter(study => study.status === 'embargoed').length
   return <section className="cve-highlights" aria-labelledby="cve-highlights-title">
     <div className="cve-highlights-heading">
-      <h2 id="cve-highlights-title"><span className="cve-count">{publishedCves.length}</span> CVEs published</h2>
+      <h2 id="cve-highlights-title"><span className="cve-count">{String(publishedCves.length).padStart(2, '0')}</span><span className="cve-slash" aria-hidden="true">/</span> CVEs published</h2>
       <p>許可された範囲で OSS を調べ、PoC（攻撃が実際に成立するかの確認）を作ってから報告{reported ? <>。ほかに<strong>{reported}件</strong>が開示調整中です</> : null}。</p>
     </div>
     <ul className="cve-cards">

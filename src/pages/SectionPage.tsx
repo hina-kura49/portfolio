@@ -1,6 +1,7 @@
 import { sitePath } from '../paths'
 import { useState } from 'react'
 import { SiteMenu } from '../components/SiteMenu'
+import { TopNav } from '../components/TopNav'
 import { Pointer } from '../components/Pointer'
 import { PersonalProfile } from '../components/PersonalProfile'
 import { Books } from '../components/Books'
@@ -36,13 +37,14 @@ export function SectionPage({ pathname }: { pathname: string }) {
   if (!project) return <main className="not-found"><h1>Page not found</h1><a href={sitePath()}>Back to index</a></main>
   return <div className="projects-page has-entered detail-page" data-preview={project.id}>
     <SiteMenu />
+    <TopNav current={project.projectUrl} />
     <main className="works-container">
       <section className="works-content">
         {caseStudy ? <>
           <a className="back-link" href={sitePath(project.projectUrl)}>← {project.title}</a>
           <CaseStudyDetail study={caseStudy} />
         </> : <>
-          <a className="back-link" href={sitePath()}>← Home</a>
+          {project.id !== 'personal-portfolio' && <a className="back-link" href={sitePath()}>← Home</a>}
           {/* Personal opens with its own hero, which carries the page heading. */}
           {project.id !== 'personal-portfolio' && <>
             <div className="section-title"><img src={sitePath(project.imageUrl)} alt="" width="64" height="64" /><h1>{project.title}</h1></div>
