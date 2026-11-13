@@ -1,19 +1,17 @@
 import { sitePath } from '../paths'
 import { biography } from '../data/content'
-import { site } from '../data/site'
 import { TechnologyList } from './TechnologyList'
-import { SecurityLabel } from './SecurityLabel'
+import { PersonalHero } from './PersonalHero'
 import { CveHighlights } from './CaseStudies'
 
 export function PersonalProfile() {
   return (
     <div className="personal-profile" lang="ja">
+      <PersonalHero />
       <section className="profile-summary" aria-labelledby="profile-name">
         <img className="profile-photo" src={sitePath(biography.photo.src)} alt={biography.photo.alt} width={biography.photo.width} height={biography.photo.height} decoding="async" />
         <div className="profile-overview">
-          <p className="profile-role">{biography.role}</p>
-          <h2 id="profile-name" className="profile-name">{site.name}</h2>
-          <SecurityLabel />
+          <h2 id="profile-name" className="profile-name">Profile</h2>
           <p className="profile-introduction">{biography.introduction}</p>
         <dl className="profile-facts">
           <div><dt>Company</dt><dd>{biography.company.url ? <a href={biography.company.url} target="_blank" rel="noreferrer">{biography.company.name}<span aria-hidden="true"> ↗</span></a> : biography.company.name}</dd></div>

@@ -43,8 +43,11 @@ export function SectionPage({ pathname }: { pathname: string }) {
           <CaseStudyDetail study={caseStudy} />
         </> : <>
           <a className="back-link" href={sitePath()}>← Home</a>
-          <div className="section-title"><img src={sitePath(project.imageUrl)} alt="" width="64" height="64" /><h1>{project.title}</h1></div>
-          <p className="section-description">{project.description}</p>
+          {/* Personal opens with its own hero, which carries the page heading. */}
+          {project.id !== 'personal-portfolio' && <>
+            <div className="section-title"><img src={sitePath(project.imageUrl)} alt="" width="64" height="64" /><h1>{project.title}</h1></div>
+            <p className="section-description">{project.description}</p>
+          </>}
           {project.id === 'development' && <Development />}
           {project.id === 'books' && <Books />}
           {project.id === 'personal-portfolio' && <PersonalProfile />}
