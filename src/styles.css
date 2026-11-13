@@ -442,8 +442,24 @@ h1, h2, p, ul { margin: 0; padding: 0; }
 }
 
 /* Personal: one warm palette taken from the illustration (cream, rust, dark brown). */
+/* Every section page shares the Personal palette, so moving between pages keeps one tone. */
+.projects-page.detail-page[data-preview] { --page-bg: #faf4ee; --page-text: #2b2420; --muted-text: #76675c; --row-border: #c4552a26; --rust: #c4552a; --rust-deep: #7c2f18; }
+.detail-page .section-title h1 { color: var(--page-text); }
+.detail-page .back-link:hover { color: var(--rust) !important; }
+.detail-page .case-severity[data-severity="critical"] { color: #9b2c14; background: #f6dcd2; }
+.detail-page .case-severity[data-severity="high"] { color: #b04b1c; background: #f8e5d8; }
+.detail-page .case-severity[data-severity="medium"] { color: #8d6a1f; background: #f4ead6; }
+.detail-page .case-severity[data-severity="low"] { color: var(--muted-text); background: #efe6dd; }
+.detail-page .case-status { border-color: #c4552a33; background: #fffaf6; }
+.detail-page .case-disclaimer { border-left-color: var(--rust); background: #fff8f2; }
+.detail-page .case-tag { background: #f3e7dc; }
+.detail-page .case-list h2 a:hover, .detail-page .case-link { color: var(--rust-deep); }
+.detail-page .contribution-status[data-status="merged"] { border-color: var(--rust); color: var(--rust-deep); }
+.detail-page .book-card { border-color: #c4552a26; background: #fffaf6; }
+.detail-page .book-status { border-color: #c4552a33; }
+.detail-page .filters select { border-color: #c4552a55; background: #fffaf6; }
+.detail-page .text-button[aria-pressed="true"] { color: var(--rust-deep); border-color: var(--rust); }
 .detail-page[data-preview="personal-portfolio"] {
-  --page-text: #2b2420; --muted-text: #76675c; --row-border: #c4552a26; --rust: #c4552a; --rust-deep: #7c2f18;
   background-image: radial-gradient(40% 25% at 0% 60%, #f5e5d8 0, transparent 70%), radial-gradient(45% 25% at 100% 85%, #f6e4d6 0, transparent 70%);
 }
 .detail-page[data-preview="personal-portfolio"] { overflow-x: clip; }
