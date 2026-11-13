@@ -369,6 +369,29 @@ h1, h2, p, ul { margin: 0; padding: 0; }
 
 /* Case Study: clean editorial cards, consistent with the rest of the site. */
 .case-list, .case-detail, .case-disclaimer, .case-meta { font-family: system-ui, sans-serif; }
+
+/* Headline label and published-CVE cards: the security work should be visible at a glance. */
+.security-label { display: inline-flex; align-items: center; gap: 7px; margin-top: 14px; padding: 5px 13px 5px 10px; border: 1px solid #a7654466; border-radius: 999px; background: #f6ede6; color: #7d4529; font-family: system-ui, sans-serif; font-size: 12px; font-weight: 600; line-height: 1.4; letter-spacing: .04em; }
+.profile-name + .security-label { margin: -12px 0 20px; }
+.cve-highlights { margin-bottom: 40px; font-family: system-ui, sans-serif; }
+.personal-profile .cve-highlights { margin: 0; padding-block: 40px; border-top: 1px solid var(--row-border); }
+.cve-highlights-heading h2 { display: flex; align-items: baseline; gap: 10px; margin: 0; font-size: clamp(18px, 2.4vw, 22px); font-weight: 600; letter-spacing: .01em; }
+.cve-count { font-family: Didot, 'Bodoni MT', 'Times New Roman', serif; font-size: clamp(44px, 6vw, 60px); font-weight: 400; line-height: 1; }
+.cve-highlights-heading p { margin-top: 8px; color: var(--muted-text); font-size: 13px; line-height: 1.9; }
+.cve-highlights-heading strong { color: var(--page-text); }
+.cve-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 12px; margin: 22px 0 0; padding: 0; list-style: none; }
+.cve-cards li { --cve-accent: #7c6a1e; --cve-bg: #f8f4e3; }
+.cve-cards li[data-severity="critical"] { --cve-accent: #9c2b2b; --cve-bg: #fbeeed; }
+.cve-cards li[data-severity="high"] { --cve-accent: #9a5a19; --cve-bg: #fbf3e8; }
+.cve-cards a { display: grid; gap: 6px; height: 100%; padding: 18px 18px 20px; border: 1px solid color-mix(in srgb, var(--cve-accent) 25%, transparent); border-top: 3px solid var(--cve-accent); border-radius: 8px; background: var(--cve-bg); color: inherit; text-decoration: none; transition: transform 250ms ease, box-shadow 250ms ease; }
+@media (hover: hover) { .cve-cards a:hover { transform: translateY(-3px); box-shadow: 0 10px 22px #253b3314; } }
+.cve-cards a:focus-visible { outline: 2px solid var(--cve-accent); outline-offset: 3px; }
+.cve-id { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; font-weight: 600; letter-spacing: .02em; }
+.cve-score { color: var(--cve-accent); font-size: 12px; font-weight: 700; letter-spacing: .04em; }
+.cve-score strong { font-size: 30px; line-height: 1.1; letter-spacing: -.02em; }
+.cve-product { margin-top: 6px; font-size: 15px; font-weight: 700; }
+.cve-title { color: var(--muted-text); font-size: 12px; line-height: 1.7; }
+@media (prefers-reduced-motion: reduce) { .cve-cards a { transition: none; } }
 .case-disclaimer { margin-bottom: 40px; padding: 14px 18px; border-left: 2px solid var(--page-text); border-radius: 0 8px 8px 0; background: #ffffff55; color: var(--muted-text); font-size: 12px; line-height: 1.9; }
 .case-list { list-style: none; padding: 0; }
 .case-list li { padding-block: 28px; border-top: 1px solid var(--row-border); }

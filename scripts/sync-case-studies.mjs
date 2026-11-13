@@ -39,6 +39,7 @@ export function promoteEntries(entries, resolve) {
       status: 'published',
       severity: SEVERITY[pub.severity] ?? entry.severity,
       ...(pub.cve ? { cve: pub.cve } : {}),
+      ...(pub.cvss ? { cvss: pub.cvss } : {}),
       url: pub.url ?? entry.url,
       ...detailsFrom(pub.summary ?? entry.title),
     }
@@ -64,7 +65,7 @@ async function resolvePublic(entry) {
     if (res.status === 404) return null
     if (!res.ok) throw new Error(`${entry.advisory}: GitHub API responded ${res.status}`)
     const a = await res.json()
-    return { severity: a.severity, cve: a.cve_id ?? undefined, url: a.html_url, summary: a.summary }
+    return { severity: a.severity, cve: a.cve_id ?? undefined, cvss: a.cvss_severities?.cvss_v4?.score || a.cvss_severities?.cvss_v3?.score || a.cvss?.score || undefined, url: a.html_url, summary: a.summary }
   }
   if (entry.cve) {
     const res = await fetch(`https://api.osv.dev/v1/vulns/${entry.cve}`)

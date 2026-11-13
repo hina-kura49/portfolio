@@ -39,6 +39,7 @@ export type CaseStudy = {
   status: 'embargoed' | 'published'
   advisory?: string // GitHub advisory id (GHSA-…) to poll
   cve?: string // CVE id to poll via OSV (e.g. for findings reported by email)
+  cvss?: number // base score shown on the CVE highlight cards
   situation?: string
   approach?: string
   finding?: string
@@ -86,7 +87,7 @@ export const biography: Biography = {
   ],
   languages: ['TypeScript', 'Python', 'Go', 'Rust'],
   frameworks: ['React'],
-  security: '日本ハッカー協会の認定ハッカーです。Hack The Boxなどは趣味で続けていて、最近はAIとWebアプリの脆弱性診断に力を入れています。Burp Suiteを用いたWebペネトレーションテストの経験があります。脆弱性リサーチャーとしてOSSの脆弱性調査にも取り組んでいて、見つけた脆弱性を開発元に報告し、修正の公開に向けて調整を進めています。',
+  security: '日本ハッカー協会の認定ハッカーです。Hack The Boxなどは趣味で続けていて、最近はAIとWebアプリの脆弱性診断に力を入れています。Burp Suiteを用いたWebペネトレーションテストの経験があります。Rustでは、標準ライブラリの安全性契約（unsafeなコードが守るべき条件）の不足を報告し、修正につながりました。脆弱性リサーチャーとしてOSSの脆弱性調査にも取り組んでいて、見つけた脆弱性を開発元に報告し、修正の公開に向けて調整を進めています。',
   interests: ['AI・Webの脆弱性診断', 'Rust / OSS', '低レイヤー', 'インフラ', '競技プログラミング'],
   outlook: 'AIとWebアプリの脆弱性診断の経験を積み、見つけた問題を開発側で直すところまで関わっていきたいです。また、Rust Developer JPやrust-jpに参加し、RustのOSSへのコントリビュートを始めました。低レイヤーやインフラの分野を学び、競技プログラミングにも挑戦したいです。開発者や学生起業家など、さまざまな人との交流も広げていきたいと思っています。',
   hobby: 'チェス / Hack The Box',

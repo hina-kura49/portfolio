@@ -2,6 +2,8 @@ import { sitePath } from '../paths'
 import { biography } from '../data/content'
 import { site } from '../data/site'
 import { TechnologyList } from './TechnologyList'
+import { SecurityLabel } from './SecurityLabel'
+import { CveHighlights } from './CaseStudies'
 
 export function PersonalProfile() {
   return (
@@ -11,6 +13,7 @@ export function PersonalProfile() {
         <div className="profile-overview">
           <p className="profile-role">{biography.role}</p>
           <h2 id="profile-name" className="profile-name">{site.name}</h2>
+          <SecurityLabel />
           <p className="profile-introduction">{biography.introduction}</p>
         <dl className="profile-facts">
           <div><dt>Company</dt><dd>{biography.company.url ? <a href={biography.company.url} target="_blank" rel="noreferrer">{biography.company.name}<span aria-hidden="true"> ↗</span></a> : biography.company.name}</dd></div>
@@ -21,6 +24,8 @@ export function PersonalProfile() {
         </dl>
         </div>
       </section>
+
+      <CveHighlights />
 
       <section className="profile-section" aria-labelledby="about-title">
         <div className="profile-section-heading"><h2 id="about-title">About</h2><p>開発を始めたきっかけ</p></div>

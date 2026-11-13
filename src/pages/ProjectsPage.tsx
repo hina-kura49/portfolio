@@ -6,6 +6,7 @@ import { Pointer } from '../components/Pointer'
 import { SiteMenu } from '../components/SiteMenu'
 import { projects } from '../data/projects'
 import { site } from '../data/site'
+import { SecurityLabel } from '../components/SecurityLabel'
 import type { Project } from '../types/project'
 
 export function ProjectsPage() {
@@ -41,6 +42,7 @@ export function ProjectsPage() {
               <h1 id="portfolio-title" className="home-title">
                 <span>{site.name}</span>{' '}<span className="brand-label">Portfolio</span>
               </h1>
+              <SecurityLabel />
             </div>
           </div>
           <ul className="projects-list">

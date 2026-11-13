@@ -23,6 +23,7 @@
     "status": "published",
     "advisory": "GHSA-j6qq-xg73-ghqg",
     "cve": "CVE-2026-45405",
+    "cvss": 9.0,
     "url": "https://github.com/dokku/dokku/security/advisories/GHSA-j6qq-xg73-ghqg",
     "situation": "AI・Webの脆弱性診断の一環として、許可された対象のOSSを精査して見つけた脆弱性です。責任ある開示の手順で報告しました。",
     "approach": "ソースコードを精査して危険な箇所を特定し、手元の環境で実証（PoC）して影響を確認しました。",
@@ -40,6 +41,7 @@
     "status": "published",
     "advisory": "GHSA-f8wj-5c4w-frhg",
     "cve": "CVE-2026-43917",
+    "cvss": 5.3,
     "url": "https://github.com/Dokploy/dokploy/security/advisories/GHSA-f8wj-5c4w-frhg",
     "situation": "AI・Webの脆弱性診断の一環として、許可された対象のOSSを精査して見つけた脆弱性です。責任ある開示の手順で報告しました。",
     "approach": "ソースコードを精査して危険な箇所を特定し、手元の環境で実証（PoC）して影響を確認しました。",
@@ -57,6 +59,7 @@
     "status": "published",
     "advisory": "GHSA-cxx3-hr75-4q96",
     "cve": "CVE-2026-42461",
+    "cvss": 8.7,
     "url": "https://github.com/getarcaneapp/arcane/security/advisories/GHSA-cxx3-hr75-4q96",
     "situation": "AI・Webの脆弱性診断の一環として、許可された対象のOSSを精査して見つけた脆弱性です。責任ある開示の手順で報告しました。",
     "approach": "ソースコードを精査して危険な箇所を特定し、手元の環境で実証（PoC）して影響を確認しました。",
@@ -116,5 +119,75 @@
     "tags": ["確認バイパス", "MCP", "CWE-184"],
     "status": "embargoed",
     "situation": "AI とデータベースをつなぐ MCP サーバで、データを壊す恐れのある SQL を実行する前の「確認」フローを、すり抜けられる脆弱性を見つけて報告しました。安全かどうかの判定が文の字面に依存していた点が原因です。攻撃の具体的な手順は、修正が公開されてから掲載します。"
+  },
+  {
+    "id": "mcp-server-ssrf",
+    "title": "サーバ側の取得処理から内部ネットワークへ届く SSRF（OSS の MCP サーバ）",
+    "target": "OSS の MCP サーバ（ブラウザ操作用）",
+    "severity": "high",
+    "date": "2026-11-12",
+    "tags": ["SSRF", "CWE-918", "MCP"],
+    "status": "embargoed",
+    "situation": "AI からブラウザを操作するための MCP サーバで、サーバ自身が行う通信の宛先チェックに内部アドレスの遮断がなく、既定の設定のままクラウドのメタデータなど内部ネットワークへ届いてしまう脆弱性（SSRF）を見つけて報告しました。手元の隔離環境で、偽の認証情報が読み取れることまで確認済みです。攻撃の具体的な手順は、修正が公開されてから掲載します。"
+  },
+  {
+    "id": "ai-assistant-ssrf",
+    "title": "ウェブ取得機能から内部サービスへ届く SSRF（OSS の AI アシスタント）",
+    "target": "OSS の AI アシスタント",
+    "severity": "high",
+    "date": "2026-11-10",
+    "tags": ["SSRF", "CWE-918", "クラウドメタデータ"],
+    "status": "embargoed",
+    "situation": "セルフホストできる AI アシスタントで、ログインしたユーザーが頼んだ URL をサーバが取りに行く際、内部アドレスの判定が「遮断」ではなく「振り分け」にしか使われておらず、内部サービスやクラウドのメタデータへ届いてしまう脆弱性（SSRF）を見つけて報告しました。攻撃の具体的な手順は、修正が公開されてから掲載します。"
+  },
+  {
+    "id": "dashboard-ping-ssrf",
+    "title": "死活確認の経路だけが SSRF 対策を通らない問題（OSS のダッシュボード）",
+    "target": "OSS のホームサーバ用ダッシュボード",
+    "severity": "medium",
+    "date": "2026-11-10",
+    "tags": ["SSRF", "CWE-918", "対策の抜け道"],
+    "status": "embargoed",
+    "situation": "ホームサーバ用のダッシュボードで、ほかの通信には堅い SSRF 対策が入っているのに、登録したアプリの死活確認（ping）の経路だけが対策を通らず、内部のホストやポートの存在を探れてしまう問題を見つけて報告しました。攻撃の具体的な手順は、修正が公開されてから掲載します。"
+  },
+  {
+    "id": "bookmark-cgnat-ssrf",
+    "title": "SSRF フィルタが CGNAT 帯を通してしまう問題（OSS のブックマーク管理）",
+    "target": "OSS のブックマーク管理（Laravel）",
+    "severity": "medium",
+    "date": "2026-11-09",
+    "tags": ["SSRF", "CWE-918", "CGNAT"],
+    "status": "embargoed",
+    "situation": "ブックマーク管理アプリが使うライブラリで、内部アドレスを弾くフィルタが CGNAT 帯（100.64.0.0/10。Tailscale などが使う範囲）を「公開アドレス」と判定してしまい、その帯にある内部サービスへ届く問題を見つけて報告しました。隔離環境で判定のずれを確認済みです。攻撃の具体的な手順は、修正が公開されてから掲載します。"
+  },
+  {
+    "id": "readlater-dns-rebinding",
+    "title": "DNS リバインディングで SSRF 対策をすり抜けられる問題（OSS の後で読むアプリ）",
+    "target": "OSS の後で読むアプリ（Go）",
+    "severity": "medium",
+    "date": "2026-11-09",
+    "tags": ["SSRF", "DNS リバインディング", "CWE-367"],
+    "status": "embargoed",
+    "situation": "「後で読む」アプリで、宛先の IP アドレスを検査したあと、実際に接続するときに名前をもう一度引き直しているため、その間に DNS の答えを差し替えると内部アドレスへ接続できてしまう問題（検査と使用の時間差）を見つけて報告しました。攻撃の具体的な手順は、修正が公開されてから掲載します。"
+  },
+  {
+    "id": "linkshare-cgnat-ssrf",
+    "title": "内部アドレス判定が CGNAT 帯を見落とす問題（OSS のリンク共有ツール）",
+    "target": "OSS のリンク共有ツール（PHP）",
+    "severity": "low",
+    "date": "2026-11-09",
+    "tags": ["SSRF", "CWE-918", "CGNAT"],
+    "status": "embargoed",
+    "situation": "セルフホストのリンク共有ツールで、内部アドレスを判定する関数が CGNAT 帯（100.64.0.0/10）を含んでおらず、Tailscale などでつながった内部の機器へ届いてしまう問題を見つけて報告しました。判定関数をそのまま再現して確認済みです。攻撃の具体的な手順は、修正が公開されてから掲載します。"
+  },
+  {
+    "id": "auth-proxy-acl",
+    "title": "許可リストが無視されて誰でも通れてしまう認可の不備（OSS の認証プロキシ）",
+    "target": "OSS の認証プロキシ（Go）",
+    "severity": "low",
+    "date": "2026-11-09",
+    "tags": ["認可不備", "CWE-285", "ACL"],
+    "status": "embargoed",
+    "situation": "アプリの前に置く認証プロキシで、アクセス制御に「許可リスト」と「拒否リスト」を両方設定すると許可リストが評価されず、拒否されていない人なら誰でも通れてしまう問題を見つけて報告しました。該当ロジックを隔離環境で再現して確認済みです。攻撃の具体的な手順は、修正が公開されてから掲載します。"
   }
 ]

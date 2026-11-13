@@ -43,8 +43,37 @@ function CaseBadges({ study }: { study: CaseStudy }) {
   </div>
 }
 
+const caseNumber = (study: CaseStudy) => caseStudies.indexOf(study) + 1
+
+/** Public CVEs, highest score first. New CVEs appear here automatically once the sync publishes them. */
+export const publishedCves = caseStudies
+  .filter(study => study.status === 'published' && study.cve)
+  .sort((a, b) => (b.cvss ?? 0) - (a.cvss ?? 0))
+
+export function CveHighlights() {
+  if (!publishedCves.length) return null
+  const reported = caseStudies.filter(study => study.status === 'embargoed').length
+  return <section className="cve-highlights" aria-labelledby="cve-highlights-title">
+    <div className="cve-highlights-heading">
+      <h2 id="cve-highlights-title"><span className="cve-count">{publishedCves.length}</span> CVEs published</h2>
+      <p>許可された範囲で OSS を調べ、PoC（攻撃が実際に成立するかの確認）を作ってから報告{reported ? <>。ほかに<strong>{reported}件</strong>が開示調整中です</> : null}。</p>
+    </div>
+    <ul className="cve-cards">
+      {publishedCves.map(study => <li key={study.id} data-severity={study.severity}>
+        <a href={sitePath(caseStudyPath(caseNumber(study)))}>
+          <span className="cve-id">{study.cve}</span>
+          <span className="cve-score"><strong>{study.cvss?.toFixed(1) ?? '—'}</strong> {severityLabel[study.severity]}</span>
+          <span className="cve-product">{study.target.split('（')[0]}</span>
+          <span className="cve-title">{study.title.replace(new RegExp(`^${study.target.split('（')[0]}\\s*の?\\s*`), '')}</span>
+        </a>
+      </li>)}
+    </ul>
+  </section>
+}
+
 export function CaseStudies() {
   return <>
+    <CveHighlights />
     <p className="case-disclaimer">許可された環境（オープンソースの公開コード・学習用ラボ・匿名化した対応記録）での調査です。報告した脆弱性は、修正が公開されるまで攻撃手順を伏せています。</p>
     {caseStudies.length ? <ol className="content-list case-list">
       {caseStudies.map((study, index) => <li key={study.id}>
