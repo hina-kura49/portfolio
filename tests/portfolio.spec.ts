@@ -73,7 +73,7 @@ test('entrance, hover handoff, fade out, menu and section links', async ({ page 
   await page.getByRole('button', { name: '絞り込みを解除' }).click()
   await expect(page.getByLabel('言語', { exact: true })).toHaveValue('')
   await page.goto('/personal')
-  await expect(page.getByRole('link', { name: /GitHub @h-kurashina/ })).toHaveAttribute('href', 'https://github.com/h-kurashina')
+  await expect(page.getByRole('link', { name: /GitHub @hina-kura49/ })).toHaveAttribute('href', 'https://github.com/hina-kura49')
   await expect(page.getByRole('link', { name: /X @hkurashina49/ })).toHaveAttribute('href', 'https://x.com/hkurashina49')
   await expect.poll(() => page.locator('.profile-photo').evaluate((image: HTMLImageElement) => image.complete && image.naturalWidth > 0)).toBe(true)
   await expect(page.locator('a[href^="mailto:"]')).toHaveCount(0)

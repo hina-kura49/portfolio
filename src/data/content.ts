@@ -80,7 +80,7 @@ export const biography: Biography = {
   interests: ['AI・Webの脆弱性診断', 'Rust / OSS', '低レイヤー', 'インフラ', '競技プログラミング'],
   outlook: 'AIとWebアプリの脆弱性診断の経験を積み、見つけた問題を開発側で直すところまで関わっていきたいです。これからは、RustSecをはじめとする既存のOSSへの貢献を中心に取り組んでいきたいです。低レイヤーやインフラの分野を学び、競技プログラミングにも挑戦したいです。開発者や学生起業家など、さまざまな人との交流も広げていきたいと思っています。',
   hobby: 'チェス / Hack The Box',
-  githubUrl: 'https://github.com/h-kurashina',
+  githubUrl: 'https://github.com/hina-kura49',
   xUrl: 'https://x.com/hkurashina49',
   photo: {
     src: '/images/profile/h-kurashina.jpg',
@@ -122,7 +122,7 @@ export const developmentWorks: DevelopmentWork[] = [
     languages: ['TypeScript', 'React Native'],
     fields: ['モバイルアプリ'],
     imageUrl: '/images/projects/tadori-icon.svg',
-    url: 'https://github.com/h-kurashina/tadori',
+    url: 'https://github.com/hina-kura49/tadori',
   },
   {
     id: 'wryte',
@@ -148,7 +148,7 @@ export const developmentWorks: DevelopmentWork[] = [
     languages: ['Rust'],
     fields: ['競技プログラミング', 'ライブラリ'],
     imageUrl: '/images/projects/sorted-multiset-icon.svg',
-    url: 'https://github.com/h-kurashina/sorted-multiset-rs',
+    url: 'https://github.com/hina-kura49/sorted-multiset-rs',
   },
   {
     id: 'trail',
@@ -157,7 +157,7 @@ export const developmentWorks: DevelopmentWork[] = [
     languages: ['Rust'],
     fields: ['ツール・自動化'],
     imageUrl: '/images/projects/trail-icon.svg',
-    url: 'https://github.com/h-kurashina/git-trail',
+    url: 'https://github.com/hina-kura49/git-trail',
   },
   {
     id: 'sta',
@@ -166,7 +166,7 @@ export const developmentWorks: DevelopmentWork[] = [
     languages: ['Swift'],
     fields: ['iOSアプリ'],
     imageUrl: '/images/projects/sta-logo.svg',
-    url: 'https://github.com/h-kurashina/sta.',
+    url: 'https://github.com/hina-kura49/sta.',
   },
 ]
 // Editions and reading dates are intentionally omitted until confirmed.
