@@ -445,7 +445,7 @@ h1, h2, p, ul { margin: 0; padding: 0; }
 .detail-page[data-preview="personal-portfolio"] .works-container { margin-top: 72px; }
 /* Desktop hero follows the 1536px mock; --u is 1% of that width, capped so it stops growing past 1536px. */
 .personal-hero { --u: min(1vw, 15.36px); position: relative; width: 100vw; max-width: 1536px; height: calc(var(--u) * 31); margin: 0 0 0 50%; transform: translateX(-50%); }
-.hero-waves { position: absolute; z-index: -1; inset: 0; width: 100%; height: 100%; }
+.hero-waves { position: absolute; z-index: -1; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: right center; }
 .hero-tagline { position: absolute; top: calc(var(--u) * 9.4); left: calc(var(--u) * 3.7); padding-bottom: 26px; color: #3b322c; font-size: calc(var(--u) * 1); letter-spacing: .32em; line-height: 1.6; }
 .hero-tagline::after { content: ''; position: absolute; left: 0; bottom: 0; width: 22px; height: 2px; background: var(--rust); }
 .hero-art { position: absolute; top: 0; right: calc(var(--u) * 3); width: calc(var(--u) * 43); height: auto; mask-image: linear-gradient(to right, transparent, #000 14%, #000 90%, transparent), linear-gradient(to bottom, transparent, #000 12%, #000 86%, transparent); mask-composite: intersect; animation: hero-art-in 1400ms cubic-bezier(.165, .84, .44, 1) 700ms both; }
