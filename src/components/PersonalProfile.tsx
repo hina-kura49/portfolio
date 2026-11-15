@@ -44,7 +44,7 @@ export function PersonalProfile() {
         <div className="profile-section-heading"><h2 id="skills-title">Skills</h2><p>使用技術・経験</p></div>
         <div className="profile-skills">
           <div><h3>Languages</h3><TechnologyList names={biography.languages} /></div>
-          <div><h3>Frameworks</h3><TechnologyList names={biography.frameworks} /></div>
+          {biography.frameworks.length > 0 && <div><h3>Frameworks</h3><TechnologyList names={biography.frameworks} /></div>}
           <div className="security-experience"><h3><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true"><path d="m12 3 8 3v6c0 4-4 7-8 9-4-2-8-5-8-9V6l8-3Z" /><path d="m8 12 3 3 5-6" /></svg>Vulnerability Research / Burp Suite</h3><p>{biography.security}</p></div>
         </div>
       </section>
