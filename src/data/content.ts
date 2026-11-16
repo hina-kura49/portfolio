@@ -67,18 +67,21 @@ export const biography: Biography = {
     { period: '2025', title: '中央大学 入学' },
     { period: '2026.02', title: 'スタートアップに入社' },
     { period: '2026.04', title: '事業責任者に就任' },
-    { period: '2026.09', title: 'Rust Developer JP 参加', detail: 'プログラミング言語Rustのコミュニティ。' },
-    { period: '2026.09', title: 'rust-jp 参加' },
-    { period: '2026.10', title: 'Contributor to the Rust compiler (rustc)', detail: 'Rustのコンパイラ（rust-lang/rust）に送った修正がマージされました。' },
+    { period: '2026.04', title: 'CVE-2026-42461 公開', detail: 'Arcane の未認証による Compose テンプレート・.env の漏えい（High）。' },
+    { period: '2026.05', title: 'CVE-2026-43917 公開', detail: 'Dokploy の組織をまたぐ権限確認の漏れ（IDOR、Medium）。' },
+    { period: '2026.05', title: 'CVE-2026-45405 公開', detail: 'Dokku の tar シンボリックリンク経由の任意ファイル書き込み（Critical）。' },
+    { period: '2026.10', title: 'Rust コンパイラ（rustc）への修正がマージ', detail: 'concat! で組み立てたフォーマット文字列に対する修正案で、コンパイラがクラッシュする問題を修正しました（rust-lang/rust#163368）。' },
+    { period: '2026.10', title: 'rustc への2件目の修正がマージ', detail: 'concat! の出力に printf 形式の指定子があるとき、無関係なソースを書き換える修正案を出さないようにしました（rust-lang/rust#163371）。' },
+    { period: '2026.11', title: '報告した標準ライブラリの問題が修正', detail: 'str::split が依存する Searcher の安全性契約の不足を報告し、別のコントリビューターによる修正（rust-lang/rust#165681）がマージされました。' },
     { period: '2026.11', title: 'Google・Microsoft・Meta などに脆弱性を報告', detail: '各社の脆弱性報告の窓口に提出しました。内容は修正の公開まで伏せています。' },
   ],
   languages: ['TypeScript', 'Python', 'Go', 'Rust'],
-  frameworks: ['React'],
+  frameworks: [],
   security: '日本ハッカー協会の認定ハッカーです。Hack The Boxなどは趣味で続けていて、最近はAIとWebアプリの脆弱性診断に力を入れています。Burp Suiteを用いたWebペネトレーションテストの経験があります。Rustでは、標準ライブラリの安全性契約（unsafeなコードが守るべき条件）の不足を報告し、修正につながりました。脆弱性リサーチャーとしてOSSの脆弱性調査にも取り組んでいて、見つけた脆弱性を開発元に報告し、修正の公開に向けて調整を進めています。2026年11月には、Google・Microsoft・Meta などにも脆弱性を報告しました。',
   interests: ['AI・Webの脆弱性診断', 'Rust / OSS', '低レイヤー', 'インフラ', '競技プログラミング'],
-  outlook: 'AIとWebアプリの脆弱性診断の経験を積み、見つけた問題を開発側で直すところまで関わっていきたいです。また、Rust Developer JPやrust-jpに参加し、RustのOSSへのコントリビュートを始めました。低レイヤーやインフラの分野を学び、競技プログラミングにも挑戦したいです。開発者や学生起業家など、さまざまな人との交流も広げていきたいと思っています。',
+  outlook: 'AIとWebアプリの脆弱性診断の経験を積み、見つけた問題を開発側で直すところまで関わっていきたいです。これからは、RustSecをはじめとする既存のOSSへの貢献を中心に取り組んでいきたいです。低レイヤーやインフラの分野を学び、競技プログラミングにも挑戦したいです。開発者や学生起業家など、さまざまな人との交流も広げていきたいと思っています。',
   hobby: 'チェス / Hack The Box',
-  githubUrl: 'https://github.com/h-kurashina',
+  githubUrl: 'https://github.com/hina-kura49',
   xUrl: 'https://x.com/hkurashina49',
   photo: {
     src: '/images/profile/h-kurashina.jpg',
@@ -98,13 +101,29 @@ export const developmentWorks: DevelopmentWork[] = [
     url: 'https://beaulab.jp',
   },
   {
+    id: 'liwin',
+    title: 'liwin',
+    description: 'macOS の AeroSpace のようなタイル型ウィンドウ管理を、Linux の GNOME（Wayland）で使えるようにするOSS。ウィンドウの配置の計算などのロジックを Rust のデーモンに置き、GNOME Shell の拡張は薄い層にしています。ウィンドウを開くと自動で並べ、キー操作でフォーカスの移動・入れ替え・ワークスペースの切り替えができます。開発中です。',
+    languages: ['Rust', 'TypeScript'],
+    fields: ['デスクトップアプリ', 'ツール・自動化'],
+    url: 'https://github.com/hina-kura49/liwin',
+  },
+  {
+    id: 'jot',
+    title: 'Jot',
+    description: '保管庫（フォルダ）の中の Markdown ファイルをそのまま保存先にする、macOS 向けのノートアプリ。Notion のようなブロック編集・スラッシュコマンド・ページのツリー・コマンドパレット・クイックキャプチャに加え、日のページに書いた時間割を Google カレンダーと同期できます。Tauri 2 で開発しています。',
+    languages: ['Rust', 'TypeScript'],
+    fields: ['デスクトップアプリ'],
+    url: 'https://github.com/hina-kura49/jot',
+  },
+  {
     id: 'tadori',
     title: 'Tadori',
     description: '誰かが作った学びの道を、辿る。技術書・ビジネス書を「順番」と「できるようになること」でつなぐ、学習ロードマップのモバイルアプリ。ホームには今読む一冊を表示し、各本のチェックポイントに到達すると次の一冊へ進みます。Expo（React Native）とExpo Routerで開発中のMVPです。',
     languages: ['TypeScript', 'React Native'],
     fields: ['モバイルアプリ'],
     imageUrl: '/images/projects/tadori-icon.svg',
-    url: 'https://github.com/h-kurashina/tadori',
+    url: 'https://github.com/hina-kura49/tadori',
   },
   {
     id: 'wryte',
@@ -117,11 +136,11 @@ export const developmentWorks: DevelopmentWork[] = [
   {
     id: 'kura',
     title: 'kura-rs',
-    description: 'コピーして使う、証拠つきのRust部品集。AIのデータ処理（チャンク分割・テキスト正規化・重複除去・トークン数の計測）とセキュリティ（ログ解析・パターン照合・ハッシュ・バイナリ解析）向けの小さな部品を、shadcn/uiのように自分のプロジェクトへソースごとコピーして使う形を目指しています。部品ごとに、参照実装との差分テストとベンチマークを付ける設計です。CLI・スキーマ・レジストリ検証・axumのAPIサーバーをRustのワークスペースで作り、ドキュメントサイトはNext.jsで8言語に対応しました。現在は開発中で、登録している8つの部品はサンプルデータです。MITとApache 2.0のデュアルライセンスで公開しています。',
+    description: 'コピーして使う、証拠つきのRust部品集。AIのデータ処理（チャンク分割・テキスト正規化・重複除去・トークン数の計測）とセキュリティ（ログ解析・パターン照合・ハッシュ・バイナリ解析）向けの小さな部品を、shadcn/uiのように自分のプロジェクトへソースごとコピーして使う形を目指しています。部品ごとに、参照実装との差分テストとベンチマークを付ける設計です。CLI・スキーマ・レジストリ検証・axumのAPIサーバーをRustのワークスペースで作り、ドキュメントサイトはNext.jsで8言語に対応しました。現在は開発中で、登録している8つの部品はサンプルデータです。MITとApache 2.0のデュアルライセンスで公開しています。また、メモリ安全性のために、Cのライブラリを Rust に書き換える取り組みも進めています。最初の対象は JSON パーサーの cJSON で、すべての行を人の手で書いた Rust 版を kura-rs/cjson として公開しています（https://github.com/kura-rs/cjson）。',
     languages: ['Rust', 'TypeScript'],
     fields: ['ライブラリ', 'ツール・自動化'],
     imageUrl: '/images/projects/kura-icon.svg',
-    url: 'https://kura-tau.vercel.app',
+    url: 'https://www.kura-rs.com/',
   },
   {
     id: 'sorted-multiset-rs',
@@ -130,7 +149,7 @@ export const developmentWorks: DevelopmentWork[] = [
     languages: ['Rust'],
     fields: ['競技プログラミング', 'ライブラリ'],
     imageUrl: '/images/projects/sorted-multiset-icon.svg',
-    url: 'https://github.com/h-kurashina/sorted-multiset-rs',
+    url: 'https://github.com/hina-kura49/sorted-multiset-rs',
   },
   {
     id: 'trail',
@@ -139,7 +158,7 @@ export const developmentWorks: DevelopmentWork[] = [
     languages: ['Rust'],
     fields: ['ツール・自動化'],
     imageUrl: '/images/projects/trail-icon.svg',
-    url: 'https://github.com/h-kurashina/git-trail',
+    url: 'https://github.com/hina-kura49/git-trail',
   },
   {
     id: 'sta',
@@ -148,7 +167,7 @@ export const developmentWorks: DevelopmentWork[] = [
     languages: ['Swift'],
     fields: ['iOSアプリ'],
     imageUrl: '/images/projects/sta-logo.svg',
-    url: 'https://github.com/h-kurashina/sta.',
+    url: 'https://github.com/hina-kura49/sta.',
   },
 ]
 // Editions and reading dates are intentionally omitted until confirmed.
@@ -157,6 +176,16 @@ export const developmentWorks: DevelopmentWork[] = [
 // で詳細を持たず、sync-case-studies ワークフローが公開後に 'published' へ切り替える。
 export const caseStudies: CaseStudy[] = caseStudiesData as CaseStudy[]
 export const contributions: Contribution[] = [
+  {
+    id: 'rust-164910',
+    repository: 'rust-lang/rust',
+    pullRequestUrl: 'https://github.com/rust-lang/rust/pull/164910',
+    title: 'Add regression tests for #164253',
+    description: '-Znext-solver=globally でコンパイラがクラッシュ（ICE）していた issue #164253 の2つの例に、回帰テストを追加。現在の nightly ではクラッシュしなくなっていることを確かめ、issue を閉じられるようにした。',
+    status: 'open',
+    date: '2026-10-25',
+    languages: ['Rust'],
+  },
   {
     id: 'rust-issue-164904',
     repository: 'rust-lang/rust',

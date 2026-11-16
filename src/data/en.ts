@@ -19,23 +19,28 @@ export const biographyEn: Partial<Biography> = {
     { period: '2025', title: 'Entered Chuo University' },
     { period: '2026.02', title: 'Joined a startup' },
     { period: '2026.04', title: 'Became business lead' },
-    { period: '2026.09', title: 'Joined Rust Developer JP', detail: 'A community for the Rust programming language.' },
-    { period: '2026.09', title: 'Joined rust-jp' },
-    { period: '2026.10', title: 'Contributor to the Rust compiler (rustc)', detail: 'My fixes to the Rust compiler (rust-lang/rust) were merged.' },
+    { period: '2026.04', title: 'CVE-2026-42461 published', detail: 'Unauthenticated leak of Compose templates and .env files in Arcane (High).' },
+    { period: '2026.05', title: 'CVE-2026-43917 published', detail: 'Missing cross-organization authorization check (IDOR) in Dokploy (Medium).' },
+    { period: '2026.05', title: 'CVE-2026-45405 published', detail: 'Arbitrary file write via tar symlinks in Dokku (Critical).' },
+    { period: '2026.10', title: 'Fix merged into the Rust compiler (rustc)', detail: 'Fixed a compiler crash caused by suggestions for format strings built with concat! (rust-lang/rust#163368).' },
+    { period: '2026.10', title: 'Second fix merged into rustc', detail: 'Stopped the compiler from suggesting rewrites of unrelated source when concat! output contains printf-style specifiers (rust-lang/rust#163371).' },
+    { period: '2026.11', title: 'Standard library issue I reported was fixed', detail: 'Reported a gap in the Searcher safety contract that str::split relies on; a fix by another contributor was merged (rust-lang/rust#165681).' },
     { period: '2026.11', title: 'Reported vulnerabilities to Google, Microsoft, Meta and others', detail: 'Submitted through each company’s vulnerability reporting program. Details stay private until fixes are released.' },
   ],
   security: 'I am a certified hacker of the Japan Hacker Association. I keep up with Hack The Box and similar platforms as a hobby, and lately I focus on vulnerability assessment of AI and web applications. I have experience with web penetration testing using Burp Suite. In Rust, I reported a gap in a standard library safety contract (the conditions unsafe code must uphold), which led to a fix. As a vulnerability researcher I also audit open source software, report what I find to the maintainers, and coordinate toward the release of fixes. In November 2026 I also reported vulnerabilities to Google, Microsoft, Meta and others.',
   interests: ['AI & web vulnerability assessment', 'Rust / OSS', 'Low-level systems', 'Infrastructure', 'Competitive programming'],
-  outlook: 'I want to keep building experience in vulnerability assessment of AI and web applications, and stay involved until the problems I find are fixed on the developer side. I have also joined Rust Developer JP and rust-jp and started contributing to Rust open source projects. I want to learn low-level systems and infrastructure, take on competitive programming, and meet more people, from developers to student founders.',
+  outlook: 'I want to keep building experience in vulnerability assessment of AI and web applications, and stay involved until the problems I find are fixed on the developer side. Going forward, I want to focus on contributing to existing open source projects, starting with RustSec. I want to learn low-level systems and infrastructure, take on competitive programming, and meet more people, from developers to student founders.',
   hobby: 'Chess / Hack The Box',
   photo: { src: '/images/profile/h-kurashina.jpg', alt: 'h.kurashina by an illuminated waterside', width: 1108, height: 1477 },
 }
 
 export const worksEn: Record<string, { description: string }> = {
   beaulab: { description: 'A social platform for aesthetic clinics. Find clinics through reviews and posts, then book and message them in one place. As business lead, I also build the web app (Next.js) and the mobile app (React Native / Expo).' },
+  liwin: { description: 'An open source tool that brings tiling window management like AeroSpace on macOS to GNOME (Wayland) on Linux. Logic such as computing window layouts lives in a Rust daemon, with a thin GNOME Shell extension on top. New windows are arranged automatically, and keyboard shortcuts move focus, swap windows and switch workspaces. In development.' },
+  jot: { description: 'A macOS note app that stores notes as plain Markdown files in a vault (a folder). Beyond Notion-style block editing, slash commands, a page tree, a command palette and quick capture, it can sync the schedule written on a day’s page with Google Calendar. Built with Tauri 2.' },
   tadori: { description: 'Follow a learning path someone else has laid out. A learning-roadmap mobile app that links technical and business books by order and by what you will be able to do. The home screen shows the book to read now, and reaching each book’s checkpoints moves you on to the next. An MVP in development with Expo (React Native) and Expo Router.' },
   wryte: { description: 'A technical writing and knowledge-sharing service for writing, verifying, refining and publishing technical knowledge. The frontend uses React and Vite; the backend uses Python (FastAPI) and PostgreSQL.' },
-  kura: { description: 'A collection of copy-in Rust components that come with evidence. Small components for AI data processing (chunking, text normalization, deduplication, token counting) and security (log parsing, pattern matching, hashing, binary analysis), meant to be copied into your project as source, in the spirit of shadcn/ui. Each component is designed to ship with differential tests against a reference implementation and benchmarks. The CLI, schema, registry validation and an axum API server live in a Rust workspace, and the documentation site is built with Next.js in eight languages. Still in development; the eight registered components are sample data. Dual-licensed under MIT and Apache 2.0.' },
+  kura: { description: 'A collection of copy-in Rust components that come with evidence. Small components for AI data processing (chunking, text normalization, deduplication, token counting) and security (log parsing, pattern matching, hashing, binary analysis), meant to be copied into your project as source, in the spirit of shadcn/ui. Each component is designed to ship with differential tests against a reference implementation and benchmarks. The CLI, schema, registry validation and an axum API server live in a Rust workspace, and the documentation site is built with Next.js in eight languages. Still in development; the eight registered components are sample data. Dual-licensed under MIT and Apache 2.0. For memory safety, I am also rewriting C libraries in Rust. The first target is the JSON parser cJSON, and a Rust version written entirely by hand is published as kura-rs/cjson (https://github.com/kura-rs/cjson).' },
   'sorted-multiset-rs': { description: 'An ordered multiset for competitive programming. It uses the same square-root decomposition as tatyam’s Python SortedSet, with an API that feels the same. A single file with only the standard library and no unsafe, ready to paste into a submission. Verified with differential tests against a reference implementation, and about 10–13× faster than the Python version on the same operation sequences. Released under CC0.' },
   trail: { description: 'A fully local CLI that reconstructs the development history of a Git worktree. Beyond commits, it lays out working-tree changes and HEAD moves as checkpoints in time, so you can see not just what changed but how. It also supports reviewing everything since the last push and diffs per worktree or commit. Written in Rust under the MIT license, and published on crates.io as “git-trail” (cargo install git-trail).' },
   sta: { description: 'A document organizer for students: pick the subject first, then scan. Scans are saved straight into their subject, and you can switch subjects quickly while viewing. Built with SwiftUI and VisionKit under the MIT license.' },
@@ -48,6 +53,7 @@ export const termsEn: Record<string, string> = {
   'iOSアプリ': 'iOS apps',
   'ライブラリ': 'Libraries',
   'ツール・自動化': 'Tools & automation',
+  'デスクトップアプリ': 'Desktop apps',
   '競技プログラミング': 'Competitive programming',
   'インフラ': 'Infrastructure',
   'セキュリティ': 'Security',
@@ -162,6 +168,7 @@ export const genericStepsEn: Record<string, string> = {
 }
 
 export const contributionsEn: Record<string, { title?: string; description: string }> = {
+  'rust-164910': { description: 'Added regression tests for the two examples in issue #164253, where the compiler crashed (ICE) with -Znext-solver=globally. Confirmed they no longer crash on current nightly so the issue can be closed.' },
   'rust-issue-164904': {
     title: 'Reported missing conditions in the Searcher safety contract',
     description: 'Reported, with a nightly reproduction and its output, that a safety condition str::split relies on in the standard library’s string search was not documented on Searcher. Fix PR #165681, which spells out the safety requirements, was merged on November 10, 2026 (UTC), and the issue was resolved. My part was verifying and reporting the problem; the fix PR was written by another contributor.',
