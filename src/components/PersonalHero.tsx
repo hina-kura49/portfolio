@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
-import { sitePath } from '../paths'
-import { biography, caseStudies, contributions } from '../data/content'
+import { pagePath, sitePath, t } from '../paths'
+import { biography, caseStudies, contributions } from '../data/localized'
 import { site } from '../data/site'
 import { publishedCves } from './CaseStudies'
 import { SecurityLabel } from './SecurityLabel'
@@ -32,8 +32,8 @@ export function PersonalHero() {
   const rustMerged = contributions.filter(item => item.repository === 'rust-lang/rust' && item.status === 'merged').length
   const stats = [
     { label: 'CVEs published', value: publishedCves.length, unit: '' },
-    { label: '開示調整中の報告', value: reported, unit: '件' },
-    { label: 'rustc にマージ', value: rustMerged, unit: 'PR' },
+    { label: t('Reports under disclosure', '開示調整中の報告'), value: reported, unit: t('', '件') },
+    { label: t('Merged into rustc', 'rustc にマージ'), value: rustMerged, unit: 'PR' },
   ]
 
   return <section className="personal-hero" aria-labelledby="hero-name">
@@ -46,12 +46,12 @@ export function PersonalHero() {
       <path d="M700 470 C 900 400 1100 430 1280 380 C 1400 350 1470 300 1536 270 L 1536 480 L 700 480 Z" fill="url(#wave-right)" />
     </svg>
     <p className="hero-tagline" aria-hidden="true">Build<br />A Safer<br />Tomorrow.</p>
-    <img className="hero-art" src={sitePath('/images/hero/rust-hero-art.jpg')} alt="Rustのロゴの前で、カニのFerrisとコーヒーに囲まれ、ノートPCに突っ伏して眠る自分のイラスト" width={992} height={710} decoding="async" fetchPriority="high" />
+    <img className="hero-art" src={sitePath('/images/hero/rust-hero-art.jpg')} alt={t('Illustration of me asleep on a laptop in front of the Rust logo, with Ferris the crab and a coffee', 'Rustのロゴの前で、カニのFerrisとコーヒーに囲まれ、ノートPCに突っ伏して眠る自分のイラスト')} width={992} height={710} decoding="async" fetchPriority="high" />
     <div className="hero-copy">
       <p className="hero-role">{biography.role.split(' / ').slice(0, 2).join(' / ')}</p>
       <h1 id="hero-name" className="hero-name">{site.name}</h1>
       <SecurityLabel />
-      <p className="hero-lead">Rust と Web のセキュリティ。<br />見つけて、証明して、直るところまで。</p>
+      <p className="hero-lead">{t(<>Rust and web security.<br />Find it, prove it, see it fixed.</>, <>Rust と Web のセキュリティ。<br />見つけて、証明して、直るところまで。</>)}</p>
       <dl className="hero-stats">
         {stats.map(stat => <div key={stat.label}>
           <dt>{stat.label}</dt>
@@ -59,7 +59,7 @@ export function PersonalHero() {
         </div>)}
       </dl>
       <div className="hero-actions">
-        <a className="hero-button" href={sitePath('/case-study')}>脆弱性の記録を見る <span aria-hidden="true">→</span></a>
+        <a className="hero-button" href={pagePath('/case-study')}>{t('View case studies', '脆弱性の記録を見る')} <span aria-hidden="true">→</span></a>
         {biography.githubUrl && <a className="hero-button is-ghost" href={biography.githubUrl} target="_blank" rel="noreferrer">GitHub <span aria-hidden="true">↗</span></a>}
       </div>
     </div>
