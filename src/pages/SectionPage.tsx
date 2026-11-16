@@ -31,9 +31,10 @@ function Development() {
 }
 
 /** Decorative art behind the page heading, cropped from the design mocks. */
-const heroArt: Record<string, { src: string, height: number }> = {
-  'case-study': { src: '/images/case-study/chess-knight.webp', height: 445 },
-  development: { src: '/images/development/cubes.webp', height: 456 },
+const heroArt: Record<string, { src: string, width: number, height: number }> = {
+  'case-study': { src: '/images/case-study/chess-knight.webp', width: 891, height: 445 },
+  development: { src: '/images/development/cubes.webp', width: 891, height: 456 },
+  'open-source': { src: '/images/open-source/branches.webp', width: 806, height: 476 },
 }
 
 export function SectionPage({ pathname }: { pathname: string }) {
@@ -49,7 +50,7 @@ export function SectionPage({ pathname }: { pathname: string }) {
           <a className="back-link" href={sitePath(project.projectUrl)}>← {project.title}</a>
           <CaseStudyDetail study={caseStudy} />
         </> : <>
-          {heroArt[project.id] && <img className="section-hero-art" src={sitePath(heroArt[project.id].src)} alt="" width="891" height={heroArt[project.id].height} aria-hidden="true" />}
+          {heroArt[project.id] && <img className="section-hero-art" src={sitePath(heroArt[project.id].src)} alt="" width={heroArt[project.id].width} height={heroArt[project.id].height} aria-hidden="true" />}
           {project.id !== 'personal-portfolio' && <a className="back-link" href={sitePath()}>← Home</a>}
           {/* Personal opens with its own hero, which carries the page heading. */}
           {project.id !== 'personal-portfolio' && <>
