@@ -1,4 +1,4 @@
-import { sitePath } from '../paths'
+import { pagePath, sitePath } from '../paths'
 import type { Project } from '../types/project'
 
 type ProjectRowProps = {
@@ -15,7 +15,7 @@ export function ProjectRow({ project, hoveredProject, onHover }: ProjectRowProps
       onMouseLeave={() => onHover(null)}
     >
       <a
-        href={sitePath(project.projectUrl)}
+        href={pagePath(project.projectUrl)}
         className="project-trigger"
         aria-label={`${project.title} — ${project.description}`}
         onFocus={() => onHover(project)}

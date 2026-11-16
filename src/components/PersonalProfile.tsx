@@ -1,12 +1,12 @@
-import { sitePath } from '../paths'
-import { biography } from '../data/content'
+import { sitePath, t } from '../paths'
+import { biography } from '../data/localized'
 import { TechnologyList } from './TechnologyList'
 import { PersonalHero } from './PersonalHero'
 import { CveHighlights } from './CaseStudies'
 
 export function PersonalProfile() {
   return (
-    <div className="personal-profile" lang="ja">
+    <div className="personal-profile">
       <PersonalHero />
       <section className="profile-summary" aria-labelledby="profile-name">
         <img className="profile-photo" src={sitePath(biography.photo.src)} alt={biography.photo.alt} width={biography.photo.width} height={biography.photo.height} decoding="async" />
@@ -23,7 +23,7 @@ export function PersonalProfile() {
         </div>
         <div className="profile-about">
           <h2 id="about-title" className="profile-about-title">About</h2>
-          <p className="profile-about-sub">開発を始めたきっかけ</p>
+          <p className="profile-about-sub">{t('How I started building', '開発を始めたきっかけ')}</p>
           <p>{biography.motivation}</p>
         </div>
       </section>
@@ -31,7 +31,7 @@ export function PersonalProfile() {
       <CveHighlights />
 
       <section className="profile-section" aria-labelledby="experience-title">
-        <div className="profile-section-heading"><h2 id="experience-title">Experience</h2><p>これまでの経歴</p></div>
+        <div className="profile-section-heading"><h2 id="experience-title">Experience</h2><p>{t('My career so far', 'これまでの経歴')}</p></div>
         <ol className="profile-timeline">
           {biography.history.map(item => <li key={item.period}>
             <span className="timeline-period">{item.period}</span>
@@ -41,7 +41,7 @@ export function PersonalProfile() {
       </section>
 
       <section className="profile-section" aria-labelledby="skills-title">
-        <div className="profile-section-heading"><h2 id="skills-title">Skills</h2><p>使用技術・経験</p></div>
+        <div className="profile-section-heading"><h2 id="skills-title">Skills</h2><p>{t('Technologies and experience', '使用技術・経験')}</p></div>
         <div className="profile-skills">
           <div><h3>Languages</h3><TechnologyList names={biography.languages} /></div>
           <div><h3>Frameworks</h3><TechnologyList names={biography.frameworks} /></div>
@@ -50,12 +50,12 @@ export function PersonalProfile() {
       </section>
 
       <section className="profile-section" aria-labelledby="interests-title">
-        <div className="profile-section-heading"><h2 id="interests-title">What's next</h2><p>これから取り組みたいこと</p></div>
+        <div className="profile-section-heading"><h2 id="interests-title">What's next</h2><p>{t('What I want to take on next', 'これから取り組みたいこと')}</p></div>
         <div><ul className="profile-tags interest-tags">{biography.interests.map(interest => <li key={interest}>{interest}</li>)}</ul><p>{biography.outlook}</p></div>
       </section>
 
       <section className="profile-section" aria-labelledby="contact-title">
-        <div className="profile-section-heading"><h2 id="contact-title">Contact</h2><p>連絡先・リンク</p></div>
+        <div className="profile-section-heading"><h2 id="contact-title">Contact</h2><p>{t('Contact and links', '連絡先・リンク')}</p></div>
         <div className="profile-contact">
           {biography.email && <a href={`mailto:${biography.email}`}><span>Email</span><span>{biography.email} <span aria-hidden="true">↗</span></span></a>}
           {biography.githubUrl && <a href={biography.githubUrl} target="_blank" rel="noreferrer"><span className="contact-platform"><img src={sitePath("/images/technologies/github.svg")} alt="" width="18" height="18" />GitHub</span><span>{biography.githubUrl.replace('https://github.com/', '@')} <span aria-hidden="true">↗</span></span></a>}

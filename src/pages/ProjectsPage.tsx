@@ -4,7 +4,7 @@ import { ProjectRow } from '../components/ProjectRow'
 import { ProjectPreview } from '../components/ProjectPreview'
 import { Pointer } from '../components/Pointer'
 import { SiteMenu } from '../components/SiteMenu'
-import { projects } from '../data/projects'
+import { projects } from '../data/localized'
 import { site } from '../data/site'
 import type { Project } from '../types/project'
 

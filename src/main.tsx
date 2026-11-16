@@ -3,7 +3,9 @@ import { createRoot } from 'react-dom/client'
 import { ProjectsPage } from './pages/ProjectsPage'
 import { SectionPage } from './pages/SectionPage'
 import './styles.css'
-import { currentPath } from './paths'
+import { currentPath, lang } from './paths'
+
+document.documentElement.lang = lang
 
 const pathname = currentPath()
 
