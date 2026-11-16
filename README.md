@@ -59,6 +59,8 @@ GitHub Actionsでもビルドとブラウザテストを実行します。
 | `/case-study` | 許可された環境での脆弱性検証の記録（事例ごとに `/case-study/1` などの独立ページ） |
 | `/open-source` | ほかのリポジトリへの貢献（PR・報告） |
 
+英語が既定で、日本語版は同じページを `/ja/` の下に置いています（例: `/ja/personal`）。右上の「EN / JA」で切り替えられます。
+
 Case Studyにはセキュリティ検証・脆弱性報告の事例、Developmentには作品、Open SourceにはOSSへの貢献を掲載しています。Hono API・DB・管理画面は未実装で、コンテンツは静的データから表示します。
 
 GitHub PagesではSettings → Pages → SourceをGitHub Actionsに設定します。mainへのpushで `npm run build:pages` が実行され、`dist` を公開します。公開URLは https://hina-kura49.github.io/portfolio/ です。各ページのHTMLも生成するため、直接アクセス・再読み込みに対応しています。通常の `npm run dev` は引き続きlocalhostのルートで動作します。
@@ -68,6 +70,7 @@ GitHub PagesではSettings → Pages → SourceをGitHub Actionsに設定しま�
 - `src/data/site.ts`: 名前、サイト名、肩書き
 - `src/data/content.ts`: プロフィール、作品、発信、本
 - `src/data/projects.ts`: ホームの入口とリンク
+- `src/data/en.ts`: 英語版の文章（日本語の元データは `content.ts`・`projects.ts`・`case-studies.json`。英語が無い項目は日本語のまま表示）
 - `src/styles.css`: レイアウト、色、アニメーション
 - `public/images/brand/hk.svg`: ロゴ・favicon
 - `public/images/profile/`: プロフィール写真
