@@ -182,7 +182,7 @@ export const contributions: Contribution[] = [
     pullRequestUrl: 'https://github.com/rust-lang/rust/pull/164910',
     title: 'Add regression tests for #164253',
     description: '-Znext-solver=globally でコンパイラがクラッシュ（ICE）していた issue #164253 の2つの例に、回帰テストを追加。現在の nightly ではクラッシュしなくなっていることを確かめ、issue を閉じられるようにした。',
-    status: 'open',
+    status: 'merged',
     date: '2026-10-25',
     languages: ['Rust'],
   },
