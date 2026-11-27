@@ -59,7 +59,11 @@ function Window({ kind }: { kind: 'term' | 'web' | 'code' }) {
 
 export function LiwinScene() {
   return <div className="scene scene-liwin">
-    <div className="lw-topbar"><span>Activities</span><span>Wed 9:41</span><span>● ● ●</span></div>
+    <div className="lw-topbar"><span>Activities</span><span>Wed 9:41</span><span className="lw-tray"><i /><i /><i /></span></div>
+    <div className="lw-dock">
+      <i className="d1" /><i className="d2" /><i className="d3" /><i className="d4" /><i className="d5" />
+      <span className="lw-grid">⋮⋮⋮</span>
+    </div>
     <div className="lw-stage">
       <div className="lw-win wa"><div className="lw-title">Terminal</div><Window kind="term" /></div>
       <div className="lw-win wb"><div className="lw-title">Browser</div><Window kind="web" /></div>
@@ -120,36 +124,54 @@ export function UnforgeScene() {
     ['ok', 'ELF64 · x86-64 · PIE', 'header'],
     ['ok', 'LOAD  r-x  0x020000', 'segment'],
     ['warn', 'e_shnum overflows the file', 'audit'],
-    ['warn', 'segment 2 overlaps segment 1', 'audit'],
-    ['info', 'sections from PT_DYNAMIC', 'choice'],
   ]
+  const asm = ['push   rbp', 'mov    rbp, rsp', 'call   std::env::args', 'cmp    rax, 2', 'jb     .usage', 'call   app::parse']
+  const rust: [string, string][] = [
+    ['', '<k>fn</k> <f>main</f>() {'],
+    ['  ', '<k>let</k> args: <t>Vec</t>&lt;<t>String</t>&gt; = std::env::<f>args</f>().<f>collect</f>();'],
+    ['  ', '<k>if</k> args.<f>len</f>() &lt; <n>2</n> {'],
+    ['    ', '<m>eprintln!</m>(<s>"usage: app &lt;file&gt;"</s>);'],
+    ['    ', '<k>return</k>;'],
+    ['  ', '}'],
+    ['  ', 'app::<f>parse</f>(&amp;args[<n>1</n>]);'],
+    ['', '}'],
+  ]
+  const html = (code: string) => code.replace(/<(k|f|t|n|s|m)>/g, '<span class="rs-$1">').replace(/<\/(k|f|t|n|s|m)>/g, '</span>')
   return <div className="scene scene-unforge">
     <div className="uf-glow" />
-    <div className="uf-top">
-      <span className="uf-file">crash-7f3a.bin</span>
-      <span className="uf-cmd">unforge elf --strict</span>
-    </div>
-    <div className="uf-layout">
-      {layout.map(([label, width, color], i) => (
-        <span key={label} className="uf-block" style={{ width: `${width}%`, '--c': color, '--i': i } as React.CSSProperties}><em>{label}</em></span>
-      ))}
-    </div>
-    <div className="uf-main">
-      <div className="uf-hex">
-        {Array.from({ length: 9 }, (_, row) => (
-          <p key={row}>{Array.from({ length: 8 }, (_, col) => {
-            const n = row * 8 + col
-            const bad = n === 21 || n === 46 || n === 58
-            return <span key={col} className={`byte${bad ? ' bad' : ''} t${n % 5}`} style={{ '--i': n } as React.CSSProperties}>{((row * 31 + col * 17 + 0x45) % 256).toString(16).padStart(2, '0')}</span>
-          })}</p>
+    <div className="uf-phase1">
+      <div className="uf-top"><span className="uf-file">target/release/app</span><span className="uf-cmd">unforge elf --strict</span></div>
+      <div className="uf-layout">
+        {layout.map(([label, width, color], i) => (
+          <span key={label} className="uf-block" style={{ width: `${width}%`, '--c': color, '--i': i } as React.CSSProperties}><em>{label}</em></span>
         ))}
       </div>
-      <div className="uf-arrow">→</div>
-      <div className="uf-cards">
-        {cards.map(([kind, text, tag], i) => (
-          <p key={i} className={`uf-card ${kind}`} style={{ '--i': i } as React.CSSProperties}><span className="uf-tag">{tag}</span>{text}</p>
-        ))}
+      <div className="uf-main">
+        <div className="uf-hex">
+          {Array.from({ length: 7 }, (_, row) => (
+            <p key={row}>{Array.from({ length: 8 }, (_, col) => {
+              const n = row * 8 + col
+              return <span key={col} className={`byte${n === 21 || n === 46 ? ' bad' : ''} t${n % 5}`} style={{ '--i': n } as React.CSSProperties}>{((row * 31 + col * 17 + 0x45) % 256).toString(16).padStart(2, '0')}</span>
+            })}</p>
+          ))}
+        </div>
+        <div className="uf-cards">
+          {cards.map(([kind, text, tag], i) => (
+            <p key={i} className={`uf-card ${kind}`} style={{ '--i': i } as React.CSSProperties}><span className="uf-tag">{tag}</span>{text}</p>
+          ))}
+        </div>
       </div>
+    </div>
+    <div className="uf-phase2">
+      <div className="uf-goal">Goal · in progress</div>
+      <div className="uf-asm">
+        <p className="uf-sym"><span className="mangled">_ZN3app4main17h9c1e2f…E</span><span className="demangled">app::main</span></p>
+        {asm.map((line, i) => <p key={i} className="uf-asm-line" style={{ '--i': i } as React.CSSProperties}>{line}</p>)}
+      </div>
+      <div className="uf-to">→</div>
+      <pre className="uf-rust">{rust.map(([indent, code], i) => (
+        <span key={i} className="uf-rs-line" style={{ '--i': i } as React.CSSProperties}>{indent}<span dangerouslySetInnerHTML={{ __html: html(code) }} />{'\n'}</span>
+      ))}</pre>
     </div>
     <div className="uf-badges">
       <span style={{ '--i': 0 } as React.CSSProperties}>#![forbid(unsafe_code)]</span>
@@ -168,6 +190,8 @@ export function CheckScene() {
     ['info', '情報', 'atty 0.2.14', 'unmaintained'],
   ]
   return <div className="scene scene-check">
+    <div className="gh-header"><span className="gh-mark" /><span className="gh-crumb"><span>your-org /</span> <b>your-app</b></span><span className="gh-search" /></div>
+    <div className="gh-tabs"><span>Code</span><span>Issues</span><span className="on">Pull requests</span><span>Actions</span><span>Security</span></div>
     <div className="ck-pr">
       <div className="ck-pr-head"><span className="ck-badge">Open</span><strong>Bump dependencies</strong><span className="ck-num">#42</span></div>
       <div className="ck-checks">
