@@ -120,9 +120,9 @@ export function HomePage() {
       <ScrollProgress />
       <CursorRing />
       <header className="home-header">
-        <a className="home-logo" href={sitePath()} aria-label={`${person.name} — home`}>
+        <a className="home-logo" href={sitePath()} aria-label={`${person.handle} — home`}>
           <img src={sitePath('/images/brand/code-mark.svg')} alt="" width="36" height="36" />
-          <span>{person.name}</span>
+          <span>{person.handle}</span>
         </a>
         <nav className="home-nav" aria-label="Sections">
           {nav.map(item => <a key={item.id} href={`#${item.id}`}>{t(item.label)}</a>)}
@@ -276,7 +276,7 @@ export function HomePage() {
         </section>
       </main>
 
-      <footer className="home-footer"><small>© {new Date().getFullYear()} {person.name}</small></footer>
+      <footer className="home-footer"><small>© {new Date().getFullYear()} {person.handle}</small></footer>
     </div>
   )
 }

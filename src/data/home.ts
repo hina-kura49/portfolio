@@ -5,6 +5,7 @@ type Text = Record<Lang, string>
 
 export const person = {
   name: 'Hinata Kurashina',
+  handle: 'h.kurashina',
   githubUrl: 'https://github.com/hina-kura49',
   xUrl: 'https://x.com/hkurashina49',
   email: 'h.kurashina49@gmail.com',
@@ -26,8 +27,8 @@ export const hero = {
   title: ['Full-Stack Engineer', 'for a More ', 'Secure', ' Internet'],
 
   lead: {
-    en: "I'm Hinata Kurashina, a software engineer and security researcher who loves building, breaking, and improving software.",
-    ja: 'Hinata Kurashina です。ソフトウェアをつくり、壊し、より良くすることが好きなソフトウェアエンジニア・セキュリティリサーチャーです。',
+    en: 'A software engineer and security researcher who loves building, breaking, and improving software.',
+    ja: 'ソフトウェアをつくり、壊し、より良くすることが好きな、ソフトウェアエンジニア・セキュリティリサーチャーです。',
   },
   primary: { en: 'View My Work', ja: '作品を見る' },
   secondary: { en: 'Contact Me', ja: 'お問い合わせ' },

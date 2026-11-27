@@ -4,9 +4,9 @@
   <path d="M66 26l20 22-20 22" stroke="#1F2328" stroke-width="9"/>
   <defs>
     <linearGradient id="s" x1="0" y1="1" x2="0" y2="0">
-      <stop offset="0" stop-color="#4285F4"/>
-      <stop offset=".5" stop-color="#34A853"/>
-      <stop offset="1" stop-color="#FBBC05"/>
+      <stop offset="0" stop-color="#1A73E8"/>
+      <stop offset=".55" stop-color="#1EA6A0"/>
+      <stop offset="1" stop-color="#34A853"/>
     </linearGradient>
   </defs>
   <path d="M55 18 41 78" stroke="url(#s)" stroke-width="9"/>
