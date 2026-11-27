@@ -121,7 +121,8 @@ export function HomePage() {
       <CursorRing />
       <header className="home-header">
         <a className="home-logo" href={sitePath()} aria-label={`${person.handle} — home`}>
-          <img src={sitePath('/images/brand/hk-mark.svg')} alt="" width="68" height="36" />
+          <img src={sitePath('/images/brand/kura-icon-square.svg')} alt="" width="52" height="52" />
+          <span>{person.handle}</span>
         </a>
         <nav className="home-nav" aria-label="Sections">
           {nav.map(item => <a key={item.id} href={`#${item.id}`}>{t(item.label)}</a>)}
