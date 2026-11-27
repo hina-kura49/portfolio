@@ -1,7 +1,7 @@
 import { useEffect, useState, type MouseEvent } from 'react'
 import { sitePath } from '../paths'
 import { contributions } from '../data/content'
-import { CcbarScene, CheckScene, JotScene, LiwinScene, UnforgeScene, WpwareScene } from '../components/PreviewScenes'
+import { CcbarScene, CheckScene, JotScene, LiwinScene, TrailScene, UnforgeScene } from '../components/PreviewScenes'
 import { CursorRing, ScrollProgress, SplitText, WaveLines } from '../components/Motion'
 import {
   about, clients, contact, featured, hero, nav, openSource, organizations, ossResearch, person, securityBand, translations, type Lang,
@@ -101,7 +101,7 @@ function WorkMedia({ work }: { work: Work }) {
     <div className="work-window-body">
       {work.media.kind === 'gif'
         ? <img src={sitePath(work.media.src)} alt="" loading="lazy" />
-        : { jot: <JotScene />, ccbar: <CcbarScene />, liwin: <LiwinScene />, unforge: <UnforgeScene />, check: <CheckScene />, wpware: <WpwareScene /> }[work.media.scene]}
+        : { jot: <JotScene />, ccbar: <CcbarScene />, liwin: <LiwinScene />, unforge: <UnforgeScene />, check: <CheckScene />, trail: <TrailScene /> }[work.media.scene]}
     </div>
   </div>
 }
