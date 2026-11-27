@@ -1,8 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 88 88">
-  <title>Tadori</title>
-  <rect width="88" height="88" fill="#EDF2EE"/>
-  <path d="M24 64C24 46 38 50 44 44C50 38 64 42 64 24" fill="none" stroke="#234E49" stroke-width="4" stroke-linecap="round" stroke-dasharray="0.1 9"/>
-  <circle cx="24" cy="64" r="7" fill="#234E49"/>
-  <circle cx="44" cy="44" r="5" fill="#234E49"/>
-  <circle cx="64" cy="24" r="7" fill="none" stroke="#234E49" stroke-width="4"/>
-</svg>
