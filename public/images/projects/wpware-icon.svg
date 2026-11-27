@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 88 88">
+  <title>WPware</title>
+  <rect width="88" height="88" fill="#0D1117"/>
+  <path d="M26 18h26l12 12v40H26z" fill="none" stroke="#7A8598" stroke-width="3" stroke-linejoin="round"/>
+  <path d="M52 18v12h12" fill="none" stroke="#7A8598" stroke-width="3" stroke-linejoin="round"/>
+  <rect x="33" y="38" width="22" height="5" rx="2.5" fill="#E6EAF2"/>
+  <rect x="33" y="48" width="14" height="5" rx="2.5" fill="#F85149"/>
+  <rect x="33" y="58" width="18" height="5" rx="2.5" fill="#7A8598"/>
+  <circle cx="62" cy="62" r="9" fill="none" stroke="#F85149" stroke-width="3.5"/>
+  <path d="M68.5 68.5l7 7" stroke="#F85149" stroke-width="4" stroke-linecap="round"/>
+</svg>

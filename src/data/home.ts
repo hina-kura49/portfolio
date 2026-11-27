@@ -179,17 +179,17 @@ export const featured = {
       roles: { en: ['Keyboard-driven', 'D-Bus daemon', 'GNOME Shell extension', 'Rust · TypeScript'], ja: ['キーボードで操作', 'D-Bus のデーモン', 'GNOME Shell の拡張', 'Rust・TypeScript'] },
     },
     {
-      id: 'trail',
-      icon: '/images/projects/trail-icon.svg',
-      url: 'https://github.com/hina-kura49/git-trail',
-      media: { kind: 'scene', scene: 'trail' },
-      tags: { en: ['Developer tool', 'CLI'], ja: ['開発者ツール', 'CLI'] },
-      title: { en: 'trail — See how your code changed, not just what', ja: 'trail — 何が変わったかだけでなく、どう変わったかを' },
-      roles: { en: ['Worktree timeline', 'Review since last push', 'cargo install git-trail', 'Rust'], ja: ['作業ツリーの時系列', '前回の push からのレビュー', 'cargo install git-trail', 'Rust'] },
+      id: 'wpware',
+      icon: '/images/projects/wpware-icon.svg',
+      url: 'https://github.com/hina-kura49/wpware',
+      media: { kind: 'scene', scene: 'wpware' },
+      tags: { en: ['Incident response', 'CLI'], ja: ['インシデント対応', 'CLI'] },
+      title: { en: 'WPware — Find what was planted in WordPress', ja: 'WPware — WordPress に仕込まれたものを見つける' },
+      roles: { en: ['Official checksum diff', 'YARA-X rules', 'Unwraps obfuscation without running PHP', 'Rust'], ja: ['公式のファイルと照合', 'YARA-X のルール', 'PHP を動かさずに難読化をほどく', 'Rust'] },
     },
   ] as {
     id: string; icon: string; url: string
-    media: { kind: 'gif'; src: string } | { kind: 'scene'; scene: 'jot' | 'ccbar' | 'liwin' | 'unforge' | 'check' | 'trail' }
+    media: { kind: 'gif'; src: string } | { kind: 'scene'; scene: 'jot' | 'ccbar' | 'liwin' | 'unforge' | 'check' | 'wpware' }
     tags: Record<Lang, string[]>; title: Record<Lang, string>; roles: Record<Lang, string[]>
   }[],
 }

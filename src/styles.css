@@ -897,6 +897,37 @@ a.info-card:hover { box-shadow: 0 10px 24px #00000014; }
 .tr-diff p { white-space: pre; } .tr-diff .del { color: #ffa198; background: #f8514926; } .tr-diff .add { color: #7ee787; background: #2ea04326; } .tr-diff .ctx { color: #8b949e; }
 @media (prefers-reduced-motion: reduce) { .ck-comment, .ck-row, .ck-fail, .tr-pt, .tr-diff { opacity: 1; transform: none; } .ck-run { display: none; } }
 
+/* wpware: 10s loop. files stream past, a tampered one glows red, its obfuscation peels layer by layer, then the Japanese result */
+.scene-wpware { background: radial-gradient(80% 80% at 0% 0%, #f8514926, transparent 60%), radial-gradient(70% 70% at 100% 100%, #2f81f726, transparent 60%), #0d1117; color: #e6edf3; font: 1.45cqw/1.6 ui-monospace, SFMono-Regular, Menlo, monospace; }
+.wpw-term { position: absolute; inset: 4cqw 5cqw; padding: 2cqw 2.4cqw; background: #010409cc; border: 1px solid #30363d; border-radius: 1.4cqw; box-shadow: 0 3cqw 6cqw -2cqw #000c; }
+.wpw-cmd b { color: #3fb950; }
+.wpw-cols { display: grid; grid-template-columns: 1fr 1.15fr; gap: 2.2cqw; margin-top: 1.6cqw; }
+.wpw-files { position: relative; height: 30cqw; overflow: hidden; -webkit-mask-image: linear-gradient(transparent, #000 15%, #000 85%, transparent); mask-image: linear-gradient(transparent, #000 15%, #000 85%, transparent); }
+.wpw-list { list-style: none; animation: wpw-scroll 10s infinite cubic-bezier(.4,0,.2,1); }
+.wpw-list li { display: flex; align-items: center; gap: .9cqw; padding: .35cqw .8cqw; color: #8b949e; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; border-radius: .7cqw; }
+.wpw-mark { flex-shrink: 0; width: 1cqw; height: 1cqw; border-radius: 50%; background: #3fb95099; }
+.wpw-list li.mod .wpw-mark { background: #d29922; }
+.wpw-list li.bad { animation: wpw-bad 10s infinite; }
+.wpw-list li.bad .wpw-mark { background: #f85149; box-shadow: 0 0 1cqw #f85149; }
+@keyframes wpw-scroll { 0% { transform: translateY(0); } 26%, 90% { transform: translateY(-8.2cqw); } 100% { transform: translateY(0); } }
+@keyframes wpw-bad { 0%, 22% { color: #8b949e; background: transparent; box-shadow: none; } 28%, 90% { color: #ffa198; background: #f8514926; box-shadow: inset 0 0 0 1px #f85149, 0 0 2.2cqw #f8514966; } 100% { color: #8b949e; background: transparent; box-shadow: none; } }
+.wpw-right { display: grid; gap: 1.4cqw; align-content: start; }
+.wpw-label { margin-bottom: .5cqw; font-size: 1.2cqw; color: #8b949e; }
+.wpw-deobf { padding: 1.2cqw 1.4cqw; background: #0d1117; border: 1px solid #30363d; border-radius: 1cqw; opacity: 0; animation: wpw-in 10s infinite; animation-delay: 0s; --from: 30%; }
+.wpw-layer { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; padding: .2cqw .6cqw; border-radius: .5cqw; opacity: 0; transform: translateX(-1cqw); animation: wpw-layer 10s infinite; animation-delay: calc(var(--i) * .7s + 3.2s); }
+.wpw-layer.raw { color: #ffa198; } .wpw-layer.l1, .wpw-layer.l2 { color: #8b949e; }
+.wpw-layer.l3 { color: #7ee787; background: #2ea04326; font-weight: 600; }
+@keyframes wpw-in { 0%, 30% { opacity: 0; transform: translateY(1cqw); } 33%, 90% { opacity: 1; transform: none; } 96%, 100% { opacity: 0; } }
+@keyframes wpw-layer { 0% { opacity: 0; transform: translateX(-1cqw); } 4%, 58% { opacity: 1; transform: none; } 64%, 100% { opacity: 0; } }
+.wpw-result { padding: 1.4cqw 1.6cqw; background: #161b22; border: 1px solid #f8514999; border-radius: 1cqw; font-family: system-ui, -apple-system, "Hiragino Sans", sans-serif; opacity: 0; transform: translateY(1cqw); animation: wpw-result 10s infinite cubic-bezier(.2,.8,.2,1); }
+@keyframes wpw-result { 0%, 62% { opacity: 0; transform: translateY(1cqw); } 66%, 90% { opacity: 1; transform: none; } 96%, 100% { opacity: 0; } }
+.wpw-head { display: flex; align-items: center; gap: .9cqw; font: 1.25cqw ui-monospace, SFMono-Regular, Menlo, monospace; color: #8b949e; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.wpw-sev { flex-shrink: 0; padding: .1cqw .9cqw; color: #fff; font-weight: 700; background: #da3633; border-radius: 99px; font-family: system-ui, -apple-system, "Hiragino Sans", sans-serif; }
+.wpw-title { margin-top: .6cqw; font-size: 1.7cqw; font-weight: 700; }
+.wpw-line { margin-top: .4cqw; font-size: 1.35cqw; } .wpw-line code { color: #7ee787; }
+.wpw-next { margin-top: .5cqw; font-size: 1.2cqw; color: #8b949e; }
+@media (prefers-reduced-motion: reduce) { .wpw-list, .wpw-list li.bad { animation: none; } .wpw-deobf, .wpw-layer, .wpw-result { opacity: 1; transform: none; animation: none; } }
+
 .cve-chip { margin-left: 2px; padding: 1px 8px; font-size: 11px; font-weight: 700; color: #fff; background: #d93025; border-radius: 999px; }
 .band-cves { font-size: 13px; color: var(--sub); }
 .band-cves strong { font-size: 20px; font-weight: 600; color: #d93025; }
