@@ -31,12 +31,12 @@ test('single page: sections, language switch, works and no detail pages', async 
   await page.setViewportSize({ width: 1440, height: 1000 })
   await page.goto('/?lang=en')
   await expect(page.getByRole('heading', { level: 1 })).toHaveAccessibleName('Full-Stack Engineer for a More Secure Internet')
-  for (const name of ['About Me', 'Now', 'Projects', 'Open Source', 'Translate', 'Contact']) {
+  for (const name of ['About Me', 'Now', 'Projects', 'Organizations', 'Open Source', 'Translate', 'Contact']) {
     await expect(page.getByRole('heading', { name, exact: true })).toBeVisible()
   }
   await expect(page.locator('.work')).toHaveCount(6)
   await expect(page.locator('.tr-item')).toHaveCount(33)
-  await expect(page.locator('.founded-card')).toHaveCount(3)
+  await expect(page.locator('.org-card')).toHaveCount(3)
   await expect(page.locator('.client-track li')).toHaveCount(32)
   await expect(page.locator('#contact a[href="mailto:h.kurashina49@gmail.com"]')).toBeVisible()
   await expect(page.locator('#open-source .info-card')).toHaveCount(7)

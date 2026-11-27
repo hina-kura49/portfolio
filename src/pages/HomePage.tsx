@@ -214,28 +214,15 @@ export function HomePage() {
           </ul>
         </section>
 
-        <section className="founded" id="organizations" aria-labelledby="orgs-title">
-          <div className="founded-glow" aria-hidden="true" />
-          <div className="founded-head">
-            <p className="founded-kicker">{t(organizations.title)}</p>
-            <h2 id="orgs-title">{t(organizations.headline)}</h2>
-            <p className="founded-note">{t(organizations.note)}</p>
-          </div>
-          <ul className="founded-totals">
-            {organizations.totals.map(total => <li key={total.value + total.label.en}><strong>{total.value}</strong><span>{t(total.label)}</span></li>)}
-          </ul>
-          <ul className="founded-grid">
+        <section className="wide-section" id="organizations" aria-labelledby="orgs-title">
+          <div className="heading-with-note"><h2 id="orgs-title" className="section-heading">{t(organizations.title)}</h2><p>{t(organizations.note)}</p></div>
+          <ul className="org-grid">
             {organizations.items.map(org => (
               <li key={org.id}>
-                <a className="founded-card" href={org.url} target="_blank" rel="noreferrer">
-                  <div className="founded-card-top">
-                    <img src={sitePath(org.logo)} alt="" width="72" height="72" />
-                    <span className="founded-role">{t(organizations.founder)} · {org.since}</span>
-                  </div>
-                  <h3>{org.name}</h3>
-                  <p>{t(org.description)}</p>
-                  <ul className="founded-stats">{org.stats.map(stat => <li key={stat.en}>{t(stat)}</li>)}</ul>
-                  <span className="founded-arrow" aria-hidden="true"><Arrow up /></span>
+                <a className="org-card" href={org.url} target="_blank" rel="noreferrer">
+                  <img src={sitePath(org.logo)} alt="" width="64" height="64" />
+                  <div><h3>{org.name}<span className="org-role">{t(organizations.founder)}</span></h3><p>{t(org.description)}</p></div>
+                  <Arrow up />
                 </a>
               </li>
             ))}

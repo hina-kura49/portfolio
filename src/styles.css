@@ -991,28 +991,3 @@ a.info-card:hover { box-shadow: 0 10px 24px #00000014; }
 .home-logo { gap: 4px; } .home-logo img { margin-left: -12px; }
 .org-card h3 { display: flex; align-items: center; gap: 10px; }
 .org-role { padding: 2px 10px; font-size: 11px; font-weight: 600; color: #fff; background: linear-gradient(90deg, #1a73e8, #1ea6a0); border-radius: 999px; }
-
-/* Founded: a dark, bold section for the organizations I started */
-.founded { position: relative; overflow: hidden; margin: 48px 0; padding: 64px 56px 56px; color: #e6edf3; background: #0b0f17; border-radius: 32px; isolation: isolate; }
-.founded-glow { position: absolute; inset: -30%; z-index: -1; background: radial-gradient(35% 40% at 15% 20%, #1a73e855, transparent 70%), radial-gradient(35% 40% at 85% 80%, #1ea6a04d, transparent 70%), radial-gradient(25% 30% at 60% 0%, #34a85333, transparent 70%); animation: founded-glow 16s ease-in-out infinite alternate; }
-@keyframes founded-glow { to { transform: translate(5%, -4%) rotate(6deg); } }
-.founded-kicker { font-size: 13px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: #8ab4f8; }
-.founded-head h2 { margin-top: 10px; font-size: clamp(32px, 4.4vw, 56px); font-weight: 600; line-height: 1.1; letter-spacing: -0.02em; background: linear-gradient(90deg, #fff 30%, #8ab4f8 70%, #7ee0c3); -webkit-background-clip: text; background-clip: text; color: transparent; }
-.founded-note { margin-top: 12px; font-size: 15px; color: #9aa4b2; }
-.founded-totals { display: flex; flex-wrap: wrap; gap: 48px; margin: 40px 0 36px; list-style: none; }
-.founded-totals li { display: flex; flex-direction: column; gap: 4px; }
-.founded-totals strong { font-size: 52px; font-weight: 600; line-height: 1; letter-spacing: -0.03em; background: linear-gradient(180deg, #fff, #8ab4f8); -webkit-background-clip: text; background-clip: text; color: transparent; }
-.founded-totals span { font-size: 13px; color: #9aa4b2; }
-.founded-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; list-style: none; }
-.founded-card { position: relative; display: flex; flex-direction: column; gap: 12px; height: 100%; padding: 28px; background: #ffffff0a; border: 1px solid #ffffff1a; border-radius: 22px; backdrop-filter: blur(6px); transition: transform 300ms cubic-bezier(.2,.8,.2,1), border-color 300ms ease, box-shadow 300ms ease, background-color 300ms ease; }
-.founded-card:hover { transform: translateY(-6px); background: #ffffff12; border-color: #8ab4f866; box-shadow: 0 24px 60px -20px #1a73e899; }
-.founded-card-top { display: flex; align-items: flex-start; justify-content: space-between; }
-.founded-card img { width: 72px; height: 72px; object-fit: cover; background: #fff; border-radius: 18px; box-shadow: 0 10px 30px -10px #000; }
-.founded-role { padding: 4px 12px; font-size: 12px; font-weight: 700; color: #0b0f17; background: linear-gradient(90deg, #8ab4f8, #7ee0c3); border-radius: 999px; }
-.founded-card h3 { margin-top: 6px; font-size: 26px; font-weight: 600; letter-spacing: -0.01em; }
-.founded-card p { font-size: 14px; line-height: 1.6; color: #b3bdc9; }
-.founded-stats { display: flex; flex-wrap: wrap; gap: 8px; margin-top: auto; padding-top: 8px; list-style: none; }
-.founded-stats li { padding: 4px 12px; font-size: 12px; color: #dbe7ff; background: #8ab4f81a; border: 1px solid #8ab4f833; border-radius: 999px; }
-.founded-arrow { position: absolute; top: 26px; right: 26px; display: none; }
-@media (max-width: 1180px) { .founded-grid { grid-template-columns: 1fr; } .founded { padding: 44px 28px; } }
-@media (prefers-reduced-motion: reduce) { .founded-glow { animation: none; } }
