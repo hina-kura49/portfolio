@@ -894,3 +894,16 @@ a.info-card:hover { box-shadow: 0 10px 24px #00000014; }
 @keyframes wall-float { 0%, 100% { translate: 0 0; } 50% { translate: 0 -8px; } }
 @media (max-width: 720px) { .clients .logo-wall { grid-template-columns: repeat(4, 1fr); } }
 @media (prefers-reduced-motion: reduce) { .clients .logo-wall li { animation: none; } }
+
+/* Clients: one row of logos drifting sideways (the row is wider than the screen, so no logo repeats in view) */
+.client-marquee { overflow: hidden; padding: 18px 0;
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 10%, #000 90%, transparent);
+  mask-image: linear-gradient(to right, transparent, #000 10%, #000 90%, transparent); }
+.client-track { display: flex; gap: 18px; width: max-content; list-style: none; animation: client-scroll 48s linear infinite; }
+.client-marquee:hover .client-track { animation-play-state: paused; }
+@keyframes client-scroll { to { transform: translateX(calc(-50% - 9px)); } }
+.client-track li { display: grid; place-items: center; width: 104px; height: 104px; flex-shrink: 0; background: #f8f9fa; border-radius: 26px; transition: background-color 250ms ease, box-shadow 250ms ease, transform 250ms cubic-bezier(.34,1.56,.64,1); }
+.client-track img { width: 56%; height: 56%; object-fit: contain; border-radius: 12px; filter: grayscale(1); opacity: .6; transition: filter 250ms ease, opacity 250ms ease; }
+.client-track li:hover { background: #fff; box-shadow: 0 16px 32px #0000001f; transform: translateY(-4px) scale(1.06); }
+.client-track li:hover img { filter: none; opacity: 1; }
+@media (prefers-reduced-motion: reduce) { .client-track { animation: none; flex-wrap: wrap; width: auto; } .client-track li:nth-child(n+17) { display: none; } }

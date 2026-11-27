@@ -173,13 +173,13 @@ export function HomePage() {
             <p className="band-total"><strong>{clients.items.length}</strong> {t(clients.unit)}</p>
             <p className="band-note">{t(clients.note)}</p>
           </div>
-          <ul className="logo-wall" aria-hidden="true">
-            {clients.items.map((client, i) => (
-              <li key={client.id} style={{ '--i': i, '--n': clients.items.length, '--f': `${(i * 7) % 11 / 10}s` } as React.CSSProperties}>
-                <img src={sitePath(client.logo)} alt="" width="56" height="56" loading="lazy" />
-              </li>
-            ))}
-          </ul>
+          <div className="client-marquee" aria-hidden="true">
+            <ul className="client-track">
+              {[...clients.items, ...clients.items].map((client, i) => (
+                <li key={i}><img src={sitePath(client.logo)} alt="" width="56" height="56" loading="lazy" /></li>
+              ))}
+            </ul>
+          </div>
         </section>
 
         <div className="two-col">
