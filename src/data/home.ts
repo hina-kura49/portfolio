@@ -238,7 +238,7 @@ export const translations = {
     { org: '0xFF-MinusOne', label: 'Offensive security', items: [
       { repo: 'testing-handbook-ja', title: 'Testing Handbook', icon: '/images/translate/trailofbits.png' },
       { repo: 'fuzzing101-ja', title: 'Fuzzing101', icon: '/images/translate/githubsecuritylab.png' },
-      { repo: 'ost2-arch1001-ja', title: 'OST2 Arch1001: x86-64 Assembly' },
+      { repo: 'ost2-arch1001-ja', title: 'OST2 Arch1001: x86-64 Assembly', icon: '/images/translate/ost2.png' },
       { repo: 'how2heap-ja', title: 'how2heap', icon: '/images/translate/shellphish.png' },
       { repo: 'pwntools-docs-ja', title: 'pwntools docs', icon: '/images/translate/Gallopsled.png' },
       { repo: 'pwntools-tutorial-ja', title: 'pwntools tutorial', icon: '/images/translate/Gallopsled.png' },
