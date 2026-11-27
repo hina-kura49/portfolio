@@ -60,7 +60,7 @@ export const ossResearch: { id: string; name: string; logo?: string; counted?: b
   { id: 'dokploy', name: 'Dokploy', logo: '/images/logos/dokploy.png', cve: 'CVE-2026-43917' },
   { id: 'arcane', name: 'Arcane', logo: '/images/logos/arcane.png', cve: 'CVE-2026-42461' },
   // Same report as OpenAI in the company row, so it is not counted twice.
-  { id: 'codex', name: 'Codex', logo: '/images/logos/openai.png', counted: false },
+  { id: 'codex', name: 'Codex', logo: '/images/logos/codex.png', counted: false },
   { id: 'maxun', name: 'Maxun', logo: '/images/logos/maxun.png' },
   { id: 'apitable', name: 'APITable', logo: '/images/logos/apitable.png' },
   { id: 'komodo', name: 'Komodo', logo: '/images/logos/komodo.png' },

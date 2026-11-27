@@ -33,7 +33,7 @@ GitHub Actionsでもビルドとブラウザテストを実行します。
 
 ## ロゴ・アイコンについて
 
-`public/images/logos/` の企業・プロジェクトのロゴは、報告先や調査対象を示すためだけに使っています。商標は各社・各プロジェクトのものです。Meta・LINE・Supabase・Rust・C は [Simple Icons](https://simpleicons.org/)（CC0。`public/licenses/simple-icons-CC0.txt`）、Google の G は Wikimedia Commons、OpenAI・APITable などは各組織の GitHub のアイコン、LinkAce はプロジェクトのロゴです。ロゴの無い個人のプロジェクトには、使っている言語（Rust・C）のロゴを付けています。
+`public/images/logos/` の企業・プロジェクトのロゴは、報告先や調査対象を示すためだけに使っています。商標は各社・各プロジェクトのものです。Meta・LINE・Supabase・Rust・C は [Simple Icons](https://simpleicons.org/)（CC0。`public/licenses/simple-icons-CC0.txt`）、Google の G は Wikimedia Commons、Codex は公式サイトのアプリのアイコン、OpenAI・APITable などは各組織の GitHub のアイコン、LinkAce はプロジェクトのロゴです。ロゴの無い個人のプロジェクトには、使っている言語（Rust・C）のロゴを付けています。
 
 `public/images/clients/` は、ペネトレーションテストの取引先の各社サイトのアイコンです（各社の許可を得て掲載）。ドメインやサーバーなどの診断の中身は載せません。
 
