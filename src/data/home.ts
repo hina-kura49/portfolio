@@ -40,7 +40,6 @@ export const securityBand = {
   companies: { en: 'Companies', ja: '企業' },
   oss: { en: 'Open source', ja: 'オープンソース' },
   total: { en: 'reports', ja: '件の報告' },
-  cves: { en: 'CVEs published', ja: '件の CVE が公開' },
   unit: { en: 'Reports ×', ja: '報告 ' },
   unitAfter: { en: '', ja: ' 件' },
   vendors: [
@@ -54,11 +53,10 @@ export const securityBand = {
 // OSS projects with submitted reports (tracked in Linear MYT: submitted / triage / in review / accepted).
 // Logos: the project's own logo, Simple Icons (CC0), or the organization's GitHub avatar.
 // Personal projects without a logo show the logo of their language (lang-*.svg).
-export const ossResearch: { id: string; name: string; logo?: string; counted?: boolean; cve?: string }[] = [
-  // Published CVEs first.
-  { id: 'dokku', name: 'Dokku', logo: '/images/logos/dokku.png', cve: 'CVE-2026-45405' },
-  { id: 'dokploy', name: 'Dokploy', logo: '/images/logos/dokploy.png', cve: 'CVE-2026-43917' },
-  { id: 'arcane', name: 'Arcane', logo: '/images/logos/arcane.png', cve: 'CVE-2026-42461' },
+export const ossResearch: { id: string; name: string; logo?: string; counted?: boolean}[] = [
+  { id: 'dokku', name: 'Dokku', logo: '/images/logos/dokku.png' },
+  { id: 'dokploy', name: 'Dokploy', logo: '/images/logos/dokploy.png' },
+  { id: 'arcane', name: 'Arcane', logo: '/images/logos/arcane.png' },
   // Same report as OpenAI in the company row, so it is not counted twice.
   { id: 'codex', name: 'Codex', logo: '/images/logos/codex.png', counted: false },
   { id: 'maxun', name: 'Maxun', logo: '/images/logos/maxun.png' },

@@ -85,7 +85,6 @@ function LogoMarquee({ t }: { t: (text: Record<Lang, string>) => string }) {
                   ? <img className="oss-logo" src={sitePath(item.logo)} alt="" width="28" height="28" />
                   : <span className="oss-logo oss-initial" aria-hidden="true">{item.name[0].toUpperCase()}</span>}
                 {item.name}
-                {item.cve && <span className="cve-chip">{item.cve}</span>}
               </span>
             </li>
           ))}
@@ -162,7 +161,6 @@ export function HomePage() {
           <div className="band-intro">
             <p className="band-label"><span className="dot" />{t(securityBand.label)}</p>
             <p className="band-total"><strong>{securityBand.vendors.reduce((sum, v) => sum + v.count, 0) + ossResearch.filter(item => item.counted !== false).length}</strong> {t(securityBand.total)}</p>
-            <p className="band-cves"><strong>{ossResearch.filter(item => item.cve).length}</strong> {t(securityBand.cves)}</p>
             <p className="band-note">{t(securityBand.note)}</p>
           </div>
           <LogoMarquee t={t} />
@@ -175,15 +173,13 @@ export function HomePage() {
             <p className="band-total"><strong>{clients.items.length}</strong> {t(clients.unit)}</p>
             <p className="band-note">{t(clients.note)}</p>
           </div>
-          <div className="logo-cloud" aria-hidden="true">
-            {[0, 1, 2, 3, 4, 5, 6, 7].map(col => {
-              // Each column starts at a different logo and runs the list twice for a seamless loop.
-              const list = clients.items.map((_, i) => clients.items[(i + col * 5) % clients.items.length])
-              return <ul key={col} className={`logo-col${col % 2 ? ' up' : ''}`} style={{ '--speed': `${30 + (col % 3) * 6}s` } as React.CSSProperties}>
-                {[...list, ...list].map((client, i) => <li key={i}><img src={sitePath(client.logo)} alt="" width="56" height="56" loading="lazy" /></li>)}
-              </ul>
-            })}
-          </div>
+          <ul className="logo-wall" aria-hidden="true">
+            {clients.items.map((client, i) => (
+              <li key={client.id} style={{ '--i': i, '--n': clients.items.length, '--f': `${(i * 7) % 11 / 10}s` } as React.CSSProperties}>
+                <img src={sitePath(client.logo)} alt="" width="56" height="56" loading="lazy" />
+              </li>
+            ))}
+          </ul>
         </section>
 
         <div className="two-col">

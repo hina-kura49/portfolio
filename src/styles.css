@@ -885,3 +885,12 @@ a.info-card:hover { box-shadow: 0 10px 24px #00000014; }
 .band-cves { font-size: 13px; color: var(--sub); }
 .band-cves strong { font-size: 20px; font-weight: 600; color: #d93025; }
 .state[data-status='resolved'] { color: #0550ae; background: #ddf4ff; }
+
+/* Clients wall: each logo once, gently floating, with a spotlight that walks across it */
+.clients .logo-wall { grid-template-columns: repeat(8, 1fr); gap: 14px; }
+.clients .logo-wall li { animation: wall-float 6s ease-in-out infinite, wall-spot calc(var(--n) * 0.8s) ease-in-out infinite; animation-delay: var(--f), calc(var(--i) * 0.8s); }
+.clients .logo-wall img { animation-duration: calc(var(--n) * 0.8s); animation-delay: calc(var(--i) * 0.8s); }
+.clients .logo-wall li:nth-child(even) { margin-top: 26px; }
+@keyframes wall-float { 0%, 100% { translate: 0 0; } 50% { translate: 0 -8px; } }
+@media (max-width: 720px) { .clients .logo-wall { grid-template-columns: repeat(4, 1fr); } }
+@media (prefers-reduced-motion: reduce) { .clients .logo-wall li { animation: none; } }

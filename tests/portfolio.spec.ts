@@ -37,7 +37,7 @@ test('single page: sections, language switch, works and no detail pages', async 
   await expect(page.locator('.work')).toHaveCount(6)
   await expect(page.locator('.tr-item')).toHaveCount(33)
   await expect(page.locator('.org-card')).toHaveCount(3)
-  await expect(page.locator('.logo-col').first().locator('li')).toHaveCount(32)
+  await expect(page.locator('.logo-wall li')).toHaveCount(16)
   await expect(page.locator('#open-source .info-card')).toHaveCount(7)
   // Everything links out to GitHub or anchors; there are no internal detail routes.
   const internal = await page.locator('a[href^="/"]').evaluateAll(links => links.map(link => link.getAttribute('href')).filter(href => href !== '/'))
