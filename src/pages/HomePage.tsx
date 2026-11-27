@@ -221,7 +221,7 @@ export function HomePage() {
               <li key={org.id}>
                 <a className="org-card" href={org.url} target="_blank" rel="noreferrer">
                   <img src={sitePath(org.logo)} alt="" width="64" height="64" />
-                  <div><h3>{org.name}</h3><p>{t(org.description)}</p></div>
+                  <div><h3>{org.name}<span className="org-role">{t(organizations.founder)}</span></h3><p>{t(org.description)}</p></div>
                   <Arrow up />
                 </a>
               </li>

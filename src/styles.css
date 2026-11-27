@@ -989,3 +989,5 @@ a.info-card:hover { box-shadow: 0 10px 24px #00000014; }
 .wp-badges span { padding: .6cqw 1.4cqw; font-size: 1.35cqw; font-weight: 700; color: #8ab4f8; border: 1px solid #8ab4f855; border-radius: 99px; background: #2271b11a; }
 @media (prefers-reduced-motion: reduce) { .wp-file, .wp-deobf, .wp-layer, .wp-verdict, .wp-report { opacity: 1; transform: none; } }
 .home-logo { gap: 4px; } .home-logo img { margin-left: -12px; }
+.org-card h3 { display: flex; align-items: center; gap: 10px; }
+.org-role { padding: 2px 10px; font-size: 11px; font-weight: 600; color: #fff; background: linear-gradient(90deg, #1a73e8, #1ea6a0); border-radius: 999px; }

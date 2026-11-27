@@ -197,7 +197,8 @@ export const featured = {
 
 export const organizations = {
   title: { en: 'Organizations', ja: 'Organizations' },
-  note: { en: 'Communities and initiatives I belong to.', ja: '所属している組織。' },
+  note: { en: 'Organizations I founded.', ja: '立ち上げた組織。' },
+  founder: { en: 'Founder', ja: '創設者' },
   items: [
     {
       id: 'rustsecjp', name: 'RustSecJP', logo: '/images/logos/org-rustsecjp.png', url: 'https://rustsecjp.github.io/',
