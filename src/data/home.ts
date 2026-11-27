@@ -197,20 +197,30 @@ export const featured = {
 
 export const organizations = {
   title: { en: 'Organizations', ja: 'Organizations' },
-  note: { en: 'Organizations I founded.', ja: '立ち上げた組織。' },
+  note: { en: 'Organizations I founded and run.', ja: '自分で立ち上げ、動かしている組織。' },
   founder: { en: 'Founder', ja: '創設者' },
+  headline: { en: 'Built from zero in 2026.', ja: '2026 年に、ゼロから立ち上げた。' },
+  // Counted from GitHub on 2026-11-27 (public, non-fork repositories).
+  totals: [
+    { value: '3', label: { en: 'organizations founded', ja: '立ち上げた組織' } },
+    { value: '42', label: { en: 'public repositories', ja: '公開リポジトリ' } },
+    { value: '33', label: { en: 'Japanese translations', ja: '日本語訳' } },
+  ],
   items: [
     {
-      id: 'rustsecjp', name: 'RustSecJP', logo: '/images/logos/org-rustsecjp.png', url: 'https://rustsecjp.github.io/',
-      description: { en: 'An unofficial Japanese community for Rust security.', ja: 'Rust のセキュリティを日本語で。非公式の日本のコミュニティ。' },
+      id: 'rustsecjp', name: 'RustSecJP', logo: '/images/logos/org-rustsecjp.png', url: 'https://github.com/RustSecJP', since: '2026.11',
+      description: { en: 'An unofficial Japanese community for Rust security: translations, incident records and tools.', ja: 'Rust のセキュリティを日本語で。翻訳・事件の記録・道具をつくる非公式のコミュニティ。' },
+      stats: [{ en: '22 repos', ja: '22 リポジトリ' }, { en: '17 translations', ja: '日本語訳 17' }, { en: 'check · unforge · incidents', ja: 'check・unforge・incidents' }],
     },
     {
-      id: 'minusone', name: 'MinusOne', logo: '/images/logos/org-minusone.png', url: 'https://github.com/0xFF-MinusOne',
+      id: 'minusone', name: 'MinusOne', logo: '/images/logos/org-minusone.png', url: 'https://github.com/0xFF-MinusOne', since: '2026.11',
       description: { en: 'An independent white-hat initiative for vulnerability response that does not depend on private companies.', ja: '民間企業にたよらない脆弱性対策を進める、独立したホワイトハットの取り組み。' },
+      stats: [{ en: '18 repos', ja: '18 リポジトリ' }, { en: '16 translations', ja: '日本語訳 16' }, { en: 'Offensive security courses', ja: '攻撃技術の講座' }],
     },
     {
-      id: 'kura-rs', name: 'kura-rs', logo: '/images/logos/org-kura-rs.png', url: 'https://github.com/kura-rs',
-      description: { en: 'Hand-written Rust components and ports.', ja: '手で書いた Rust の部品と移植。' },
+      id: 'kura-rs', name: 'kura-rs', logo: '/images/logos/org-kura-rs.png', url: 'https://github.com/kura-rs', since: '2026.11',
+      description: { en: 'Hand-written Rust components and ports — no LLM-generated code.', ja: '手で書いた Rust の部品と移植。LLM が書いたコードは使わない。' },
+      stats: [{ en: 'cjson port', ja: 'cJSON の移植' }, { en: 'Human-written', ja: '人の手だけで書く' }],
     },
   ],
 }
