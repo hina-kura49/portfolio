@@ -7,6 +7,7 @@ export const person = {
   name: 'Hinata Kurashina',
   githubUrl: 'https://github.com/hina-kura49',
   xUrl: 'https://x.com/hkurashina49',
+  email: 'h.kurashina49@gmail.com',
 }
 
 export const nav: { id: string; label: Text }[] = [
@@ -263,5 +264,5 @@ export const openSource = {
 
 export const contact = {
   title: { en: 'Contact', ja: 'Contact' },
-  body: { en: 'Feel free to reach out on GitHub or X.', ja: 'GitHub か X からお気軽にご連絡ください。' },
+  body: { en: 'Feel free to reach out by email, GitHub, or X.', ja: 'メール・GitHub・X から、お気軽にご連絡ください。' },
 }

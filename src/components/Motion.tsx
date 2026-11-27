@@ -2,11 +2,13 @@ import { useEffect, useRef } from 'react'
 
 const reduced = () => window.matchMedia('(prefers-reduced-motion: reduce)').matches
 
-/** Split text into spans so each character can animate in with a stagger. */
-export function SplitText({ text, start = 0, colors }: { text: string; start?: number; colors?: string[] }) {
-  return <>{[...text].map((ch, i) => (
-    <span key={i} className="char" style={{ '--i': start + i, color: colors?.[i % colors.length] } as React.CSSProperties}>
-      {ch === ' ' ? ' ' : ch}
+/** Split text into spans so each character can animate in with a stagger.
+ *  With `gradient`, the characters share one gradient (each shows its own slice). */
+export function SplitText({ text, start = 0, gradient = false }: { text: string; start?: number; gradient?: boolean }) {
+  const chars = [...text]
+  return <>{chars.map((ch, i) => (
+    <span key={i} className={`char${gradient ? ' char-gradient' : ''}`} style={{ '--i': start + i, '--k': i, '--n': chars.length } as React.CSSProperties}>
+      {ch === ' ' ? '\u00a0' : ch}
     </span>
   ))}</>
 }

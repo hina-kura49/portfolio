@@ -8,7 +8,6 @@ import {
 } from '../data/home'
 
 const LANG_KEY = 'portfolio-lang'
-const BRAND_COLORS = ['#4285F4', '#EA4335', '#FBBC05', '#4285F4', '#34A853', '#EA4335']
 
 function initialLang(): Lang {
   if (/\/ja(\/|$)/.test(window.location.pathname)) return 'ja'
@@ -147,7 +146,7 @@ export function HomePage() {
             </div>
             <h1 className="hero-title" aria-label={`${line1} ${before}${colored}${after}`}>
               <span aria-hidden="true"><SplitText text={line1} /></span><br />
-              <span aria-hidden="true"><SplitText text={before} start={line1.length} /><span className="brand-word"><SplitText text={colored} start={line1.length + before.length} colors={BRAND_COLORS} /></span><SplitText text={after} start={line1.length + before.length + colored.length} /></span>
+              <span aria-hidden="true"><SplitText text={before} start={line1.length} /><span className="brand-word"><SplitText text={colored} start={line1.length + before.length} gradient /></span><SplitText text={after} start={line1.length + before.length + colored.length} /></span>
             </h1>
             <p className="hero-lead">{t(hero.lead)}</p>
             <div className="hero-buttons">
@@ -270,7 +269,8 @@ export function HomePage() {
           <h2 id="contact-title" className="section-heading">{t(contact.title)}</h2>
           <p className="body-text">{t(contact.body)}</p>
           <div className="hero-buttons">
-            <a className="button button-dark" href={person.githubUrl} target="_blank" rel="noreferrer">GitHub @hina-kura49 <Arrow up /></a>
+            <a className="button button-dark" href={`mailto:${person.email}`}><svg className="icon" viewBox="0 0 16 16" aria-hidden="true"><rect x="1.5" y="3" width="13" height="10" rx="1.5" /><path d="m2 4 6 5 6-5" /></svg>{person.email}</a>
+            <a className="button button-light" href={person.githubUrl} target="_blank" rel="noreferrer">GitHub @hina-kura49 <Arrow up /></a>
             <a className="button button-light" href={person.xUrl} target="_blank" rel="noreferrer">X @hkurashina49 <Arrow up /></a>
           </div>
         </section>
