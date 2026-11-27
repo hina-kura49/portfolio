@@ -106,7 +106,6 @@ export const clients = {
     { id: 'c11', logo: '/images/clients/c11.png' },
     { id: 'c12', logo: '/images/clients/c12.png' },
     { id: 'c13', logo: '/images/clients/c13.png' },
-    { id: 'c14', logo: '/images/clients/c14.png' },
     { id: 'c15', logo: '/images/clients/c15.png' },
     { id: 'c16', logo: '/images/clients/c16.png' },
   ] as { id: string; logo: string }[],
