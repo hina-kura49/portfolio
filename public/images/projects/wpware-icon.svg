@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+  <title>WPware</title>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1d2b4f"/><stop offset="1" stop-color="#0b1222"/></linearGradient>
+    <linearGradient id="lens" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#4f9cff"/><stop offset="1" stop-color="#2271b1"/></linearGradient>
+  </defs>
+  <rect width="128" height="128" rx="28" fill="url(#bg)"/>
+  <circle cx="56" cy="56" r="30" fill="none" stroke="url(#lens)" stroke-width="10"/>
+  <path d="M78 78l22 22" stroke="#4f9cff" stroke-width="12" stroke-linecap="round"/>
+  <path d="M40 46l6 22 10-18 10 18 6-22" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="92" cy="34" r="9" fill="#ff4d4f"/>
+</svg>

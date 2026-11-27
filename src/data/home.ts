@@ -132,6 +132,7 @@ export const about = {
 export const featured = {
   title: { en: 'Projects', ja: 'Projects' },
   note: { en: 'Things I build and maintain.', ja: 'つくって、育てているもの。' },
+  soon: { en: 'Coming soon', ja: '近日公開' },
   items: [
     {
       id: 'jot',
@@ -179,17 +180,17 @@ export const featured = {
       roles: { en: ['Keyboard-driven', 'D-Bus daemon', 'GNOME Shell extension', 'Rust · TypeScript'], ja: ['キーボードで操作', 'D-Bus のデーモン', 'GNOME Shell の拡張', 'Rust・TypeScript'] },
     },
     {
-      id: 'trail',
-      icon: '/images/projects/trail-icon.svg',
-      url: 'https://github.com/hina-kura49/git-trail',
-      media: { kind: 'scene', scene: 'trail' },
-      tags: { en: ['Developer tool', 'CLI'], ja: ['開発者ツール', 'CLI'] },
-      title: { en: 'trail — See how your code changed, not just what', ja: 'trail — 何が変わったかだけでなく、どう変わったかを' },
-      roles: { en: ['Worktree timeline', 'Review since last push', 'cargo install git-trail', 'Rust'], ja: ['作業ツリーの時系列', '前回の push からのレビュー', 'cargo install git-trail', 'Rust'] },
+      id: 'wpware',
+      icon: '/images/projects/wpware-icon.svg',
+      url: 'https://github.com/hina-kura49/wpware',
+      media: { kind: 'scene', scene: 'wpware' },
+      tags: { en: ['Malware scanner', 'WordPress'], ja: ['マルウェアスキャナー', 'WordPress'] },
+      title: { en: 'WPware — Find the backdoor hiding in your WordPress', ja: 'WPware — WordPress に潜むバックドアを、見つけ出す' },
+      roles: { en: ['Official checksum verification', 'Web shell detection', 'Deobfuscation', 'Rust'], ja: ['公式チェックサムとの照合', 'Web シェルの検知', '難読化をほどく', 'Rust'] },
     },
   ] as {
-    id: string; icon: string; url: string
-    media: { kind: 'gif'; src: string } | { kind: 'scene'; scene: 'jot' | 'ccbar' | 'liwin' | 'unforge' | 'check' | 'trail' }
+    id: string; icon: string; url: string; soon?: boolean
+    media: { kind: 'gif'; src: string } | { kind: 'scene'; scene: 'jot' | 'ccbar' | 'liwin' | 'unforge' | 'check' | 'trail' | 'wpware' }
     tags: Record<Lang, string[]>; title: Record<Lang, string>; roles: Record<Lang, string[]>
   }[],
 }

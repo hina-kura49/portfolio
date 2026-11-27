@@ -1,7 +1,7 @@
 import { useEffect, useState, type MouseEvent } from 'react'
 import { sitePath } from '../paths'
 import { contributions } from '../data/content'
-import { CcbarScene, CheckScene, JotScene, LiwinScene, TrailScene, UnforgeScene } from '../components/PreviewScenes'
+import { CcbarScene, CheckScene, JotScene, LiwinScene, TrailScene, UnforgeScene, WpwareScene } from '../components/PreviewScenes'
 import { CursorRing, ScrollProgress, SplitText, WaveLines } from '../components/Motion'
 import {
   about, clients, contact, featured, hero, nav, openSource, organizations, ossResearch, person, securityBand, translations, type Lang,
@@ -101,7 +101,7 @@ function WorkMedia({ work }: { work: Work }) {
     <div className="work-window-body">
       {work.media.kind === 'gif'
         ? <img src={sitePath(work.media.src)} alt="" loading="lazy" />
-        : { jot: <JotScene />, ccbar: <CcbarScene />, liwin: <LiwinScene />, unforge: <UnforgeScene />, check: <CheckScene />, trail: <TrailScene /> }[work.media.scene]}
+        : { jot: <JotScene />, ccbar: <CcbarScene />, liwin: <LiwinScene />, unforge: <UnforgeScene />, check: <CheckScene />, trail: <TrailScene />, wpware: <WpwareScene /> }[work.media.scene]}
     </div>
   </div>
 }
@@ -199,9 +199,9 @@ export function HomePage() {
           <ul className="works">
             {featured.items.map(work => (
               <li key={work.id}>
-                <a className="work" href={work.url} target="_blank" rel="noreferrer">
+                <a className={`work${work.soon ? ' is-soon' : ''}`} href={work.soon ? undefined : work.url} target="_blank" rel="noreferrer" aria-disabled={work.soon || undefined}>
                   <div className="work-stage"><WorkMedia work={work} /></div>
-                  <p className="work-tags">{work.tags[lang].join(' ／ ')}</p>
+                  <p className="work-tags">{work.tags[lang].join(' ／ ')}{work.soon && <span className="work-soon">{t(featured.soon)}</span>}</p>
                   <div className="work-title-row">
                     <h3><img src={sitePath(work.icon)} alt="" width="28" height="28" />{t(work.title)}</h3>
                     <span className="work-arrow" aria-hidden="true"><Arrow /></span>
