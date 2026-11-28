@@ -183,12 +183,13 @@ export function UnforgeScene() {
   </div>
 }
 
-export function CheckScene() {
+export function CheckScene({ lang = 'ja' }: { lang?: 'ja' | 'en' }) {
+  const en = lang === 'en'
   const rows: [string, string, string, string][] = [
-    ['mal', '悪性', 'faster_log 1.7.8', 'MAL-2025-xxxx · 削除済み'],
-    ['vul', '脆弱性', 'time 0.1.45', 'RUSTSEC-2020-0071 → 0.2.23 で修正'],
-    ['name', '名前の注意', 'serde-rs 0.1.0', 'serde に似た名前'],
-    ['info', '情報', 'atty 0.2.14', 'unmaintained'],
+    ['mal', en ? 'Malicious' : '悪性', 'faster_log 1.7.8', en ? 'MAL-2025-xxxx · yanked' : 'MAL-2025-xxxx · 削除済み'],
+    ['vul', en ? 'Vulnerable' : '脆弱性', 'time 0.1.45', en ? 'RUSTSEC-2020-0071 → fixed in 0.2.23' : 'RUSTSEC-2020-0071 → 0.2.23 で修正'],
+    ['name', en ? 'Look-alike' : '名前の注意', 'serde-rs 0.1.0', en ? 'looks like serde' : 'serde に似た名前'],
+    ['info', en ? 'Info' : '情報', 'atty 0.2.14', 'unmaintained'],
   ]
   return <div className="scene scene-check">
     <div className="gh-header"><span className="gh-mark" /><span className="gh-crumb"><span>your-org /</span> <b>your-app</b></span><span className="gh-search" /></div>
@@ -196,18 +197,18 @@ export function CheckScene() {
     <div className="ck-pr">
       <div className="ck-pr-head"><span className="ck-badge">Open</span><strong>Bump dependencies</strong><span className="ck-num">#42</span></div>
       <div className="ck-checks">
-        <p className="ck-run"><span className="ck-spin" />RustSecJP check — Cargo.lock を確認中…</p>
-        <p className="ck-fail">✕ RustSecJP check — 悪性の crate が 1 件</p>
+        <p className="ck-run"><span className="ck-spin" />{en ? 'RustSecJP check — checking Cargo.lock…' : 'RustSecJP check — Cargo.lock を確認中…'}</p>
+        <p className="ck-fail">{en ? '✕ RustSecJP check — 1 malicious crate' : '✕ RustSecJP check — 悪性の crate が 1 件'}</p>
       </div>
       <div className="ck-comment">
         <p className="ck-who"><span className="ck-avatar" />rustsecjp-check <em>bot</em></p>
-        <p className="ck-title">依存 214 件を確かめました</p>
+        <p className="ck-title">{en ? 'Checked 214 dependencies' : '依存 214 件を確かめました'}</p>
         {rows.map(([kind, label, krate, note], i) => (
           <p key={kind} className={`ck-row ${kind}`} style={{ '--i': i } as React.CSSProperties}>
             <span className="ck-label">{label}</span><code>{krate}</code><span className="ck-note">{note}</span>
           </p>
         ))}
-        <p className="ck-foot">RustSecJP の記録・OSV をもとに確認 · ビルドもコードの実行もしていません</p>
+        <p className="ck-foot">{en ? 'Based on RustSecJP records and OSV · nothing was built or run' : 'RustSecJP の記録・OSV をもとに確認 · ビルドもコードの実行もしていません'}</p>
       </div>
     </div>
   </div>
@@ -245,14 +246,15 @@ export function TrailScene() {
   </div>
 }
 
-export function WpwareScene() {
+export function WpwareScene({ lang = 'ja' }: { lang?: 'ja' | 'en' }) {
+  const en = lang === 'en'
   const files: [string, string, string][] = [
     ['ok', 'wp-admin/index.php', ''],
     ['ok', 'wp-includes/version.php', ''],
     ['ok', 'wp-includes/functions.php', ''],
-    ['bad', 'wp-includes/class-wp-hook.php', '改ざん'],
+    ['bad', 'wp-includes/class-wp-hook.php', en ? 'modified' : '改ざん'],
     ['ok', 'wp-content/plugins/akismet/akismet.php', ''],
-    ['bad', 'wp-content/uploads/2026/11/favicon.ico.php', 'uploads に PHP'],
+    ['bad', 'wp-content/uploads/2026/11/favicon.ico.php', en ? 'PHP in uploads' : 'uploads に PHP'],
     ['ok', 'wp-content/themes/twentytwentyfive/style.css', ''],
     ['warn', '.htaccess', 'auto_prepend_file'],
   ]
@@ -263,7 +265,7 @@ export function WpwareScene() {
     ['rot13', "system($_POST['c']);"],
   ]
   return <div className="scene scene-wpware">
-    <div className="wp-head"><img className="wp-logo" src={sitePath('/images/projects/wpware-icon.svg')} alt="" /><span>wpware scan ./public_html</span><span className="wp-ver">WordPress 6.8.3 · ja</span></div>
+    <div className="wp-head"><img className="wp-logo" src={sitePath('/images/projects/wpware-icon.svg')} alt="" /><span>wpware scan ./public_html</span><span className="wp-ver">{en ? 'WordPress 6.8.3 · en_US' : 'WordPress 6.8.3 · ja'}</span></div>
     <div className="wp-body">
       <ul className="wp-files">
         {files.map(([kind, path, why], i) => (
@@ -273,18 +275,18 @@ export function WpwareScene() {
         ))}
       </ul>
       <div className="wp-deobf">
-        <p className="wp-deobf-title">favicon.ico.php をほどく</p>
+        <p className="wp-deobf-title">{en ? 'Unpacking favicon.ico.php' : 'favicon.ico.php をほどく'}</p>
         {layers.map(([label, code], i) => (
           <p key={label} className={`wp-layer l${i}`} style={{ '--i': i } as React.CSSProperties}><span className="wp-layer-tag">{label}</span><code>{code}</code></p>
         ))}
-        <p className="wp-verdict">Web シェル — 外から送られた命令を実行します</p>
+        <p className="wp-verdict">{en ? 'Web shell — runs commands sent from outside' : 'Web シェル — 外から送られた命令を実行します'}</p>
       </div>
     </div>
     <div className="wp-report">
-      <span className="wp-sev">重大 3 件</span>
-      <span>改ざん 1 · 置き場所 1 · 設定 1</span>
-      <span className="wp-next">次にすること: 該当ファイルを控えてから、公式の版で置き換え</span>
+      <span className="wp-sev">{en ? '3 critical' : '重大 3 件'}</span>
+      <span>{en ? 'modified 1 · location 1 · config 1' : '改ざん 1 · 置き場所 1 · 設定 1'}</span>
+      <span className="wp-next">{en ? 'Next: back up the files, then restore the official versions' : '次にすること: 該当ファイルを控えてから、公式の版で置き換え'}</span>
     </div>
-    <div className="wp-badges"><span>読むだけ</span><span>PHP を実行しない</span><span>日本語の結果</span><span>JSON · SARIF</span></div>
+    <div className="wp-badges">{(en ? ['Read-only', 'Never runs PHP', 'Clear reports', 'JSON · SARIF'] : ['読むだけ', 'PHP を実行しない', '日本語の結果', 'JSON · SARIF']).map((b) => <span key={b}>{b}</span>)}</div>
   </div>
 }
