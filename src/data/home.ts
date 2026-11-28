@@ -8,6 +8,8 @@ export const person = {
   handle: 'h.kurashina',
   githubUrl: 'https://github.com/hina-kura49',
   xUrl: 'https://x.com/hkurashina49',
+  instagramUrl: 'https://www.instagram.com/hina_kura49/',
+  facebookUrl: 'https://www.facebook.com/profile.php?id=61597175063829',
   email: 'h.kurashina49@gmail.com',
 }
 
@@ -249,5 +251,5 @@ export const openSource = {
 
 export const contact = {
   title: { en: 'Contact', ja: 'Contact' },
-  body: { en: 'Feel free to reach out by email, GitHub, or X.', ja: 'メール・GitHub・X から、お気軽にご連絡ください。' },
+  body: { en: 'Feel free to reach out by email, GitHub, or X. New tools and demos are posted on X, Instagram and Facebook.', ja: 'メール・GitHub・X から、お気軽にご連絡ください。新しい道具やデモは X・Instagram・Facebook に載せています。' },
 }

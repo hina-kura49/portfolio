@@ -281,11 +281,13 @@ export function HomePage() {
             <a className="button button-dark" href={`mailto:${person.email}`}><svg className="icon" viewBox="0 0 16 16" aria-hidden="true"><rect x="1.5" y="3" width="13" height="10" rx="1.5" /><path d="m2 4 6 5 6-5" /></svg>{person.email}</a>
             <a className="button button-light" href={person.githubUrl} target="_blank" rel="noreferrer">GitHub @hina-kura49 <Arrow up /></a>
             <a className="button button-light" href={person.xUrl} target="_blank" rel="noreferrer">X @hkurashina49 <Arrow up /></a>
+            <a className="button button-light" href={person.instagramUrl} target="_blank" rel="noreferrer">Instagram @hina_kura49 <Arrow up /></a>
+            <a className="button button-light" href={person.facebookUrl} target="_blank" rel="noreferrer">Facebook <Arrow up /></a>
           </div>
         </section>
       </main>
 
-      <footer className="home-footer"><small>© {new Date().getFullYear()} {person.handle}</small></footer>
+      <footer className="home-footer"><small>© {new Date().getFullYear()} {person.handle} · <a href={person.xUrl} target="_blank" rel="noreferrer">X</a> · <a href={person.instagramUrl} target="_blank" rel="noreferrer">Instagram</a> · <a href={person.facebookUrl} target="_blank" rel="noreferrer">Facebook</a> · <a href={person.githubUrl} target="_blank" rel="noreferrer">GitHub</a></small></footer>
     </div>
   )
 }
