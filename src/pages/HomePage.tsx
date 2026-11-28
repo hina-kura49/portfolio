@@ -95,12 +95,21 @@ function LogoMarquee({ t }: { t: (text: Record<Lang, string>) => string }) {
 
 type Work = (typeof featured.items)[number]
 
+// 動きを減らす設定の人には、最後のコマの静止画だけを出す。
+function WorkVideo({ src, poster }: { src: string; poster: string }) {
+  const reduce = typeof matchMedia === 'function' && matchMedia('(prefers-reduced-motion: reduce)').matches
+  if (reduce) return <img src={sitePath(poster)} alt="" loading="lazy" />
+  return <video src={sitePath(src)} poster={sitePath(poster)} autoPlay muted loop playsInline preload="metadata" aria-hidden="true" />
+}
+
 function WorkMedia({ work }: { work: Work }) {
   return <div className="work-window">
     <div className="work-window-bar"><i /><i /><i /></div>
     <div className="work-window-body">
       {work.media.kind === 'gif'
         ? <img src={sitePath(work.media.src)} alt="" loading="lazy" />
+        : work.media.kind === 'video'
+        ? <WorkVideo src={work.media.src} poster={work.media.poster} />
         : { jot: <JotScene />, ccbar: <CcbarScene />, liwin: <LiwinScene />, unforge: <UnforgeScene />, check: <CheckScene />, trail: <TrailScene />, wpware: <WpwareScene /> }[work.media.scene]}
     </div>
   </div>
