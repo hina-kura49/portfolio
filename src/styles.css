@@ -740,6 +740,7 @@ a.info-card:hover { box-shadow: 0 10px 24px #00000014; }
 
 /* Clients: columns of logos drifting up and down so the wall feels endless */
 .clients { grid-template-columns: minmax(400px, 1fr) 2fr; padding: 40px 0; }
+@media (max-width: 1180px) { .clients { grid-template-columns: 1fr; gap: 28px; } }
 .logo-cloud { display: grid; grid-template-columns: repeat(8, 1fr); gap: 12px; height: 400px; overflow: hidden;
   -webkit-mask-image: linear-gradient(to bottom, transparent, #000 18%, #000 82%, transparent);
   mask-image: linear-gradient(to bottom, transparent, #000 18%, #000 82%, transparent); }
