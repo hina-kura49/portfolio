@@ -137,7 +137,7 @@ export const featured = {
       id: 'jot',
       icon: '/images/projects/jot-icon.png',
       url: 'https://github.com/hina-kura49/jot',
-      media: { kind: 'scene', scene: 'jot' },
+      media: { kind: 'video', src: '/images/projects/jot-demo.webm', poster: '/images/projects/jot-demo-poster.webp' },
       tags: { en: ['Notes app', 'Desktop'], ja: ['ノートアプリ', 'デスクトップ'] },
       title: { en: 'Jot — Markdown notes that stay yours', ja: 'Jot — 自分の手元に残る Markdown ノート' },
       roles: { en: ['Plain .md files', 'Block editor', 'Vim mode', 'Tauri · React · Rust'], ja: ['ただの .md ファイル', 'ブロックエディタ', 'Vim モード', 'Tauri・React・Rust'] },
@@ -189,7 +189,7 @@ export const featured = {
     },
   ] as {
     id: string; icon: string; url: string; soon?: boolean
-    media: { kind: 'gif'; src: string } | { kind: 'scene'; scene: 'jot' | 'ccbar' | 'liwin' | 'unforge' | 'check' | 'trail' | 'wpware' }
+    media: { kind: 'gif'; src: string } | { kind: 'video'; src: string; poster: string } | { kind: 'scene'; scene: 'jot' | 'ccbar' | 'liwin' | 'unforge' | 'check' | 'trail' | 'wpware' }
     tags: Record<Lang, string[]>; title: Record<Lang, string>; roles: Record<Lang, string[]>
   }[],
 }
