@@ -152,15 +152,6 @@ export const featured = {
       roles: { en: ['Menu bar app', 'Reset notifications', 'Swift · Rust'], ja: ['メニューバーのアプリ', '回復の通知', 'Swift・Rust'] },
     },
     {
-      id: 'check',
-      icon: '/images/logos/org-rustsecjp.png',
-      url: 'https://github.com/RustSecJP/check',
-      media: { kind: 'scene', scene: 'check' },
-      tags: { en: ['Supply-chain security', 'GitHub Action'], ja: ['サプライチェーンのセキュリティ', 'GitHub Action'] },
-      title: { en: 'RustSecJP check — Catch bad crates before they merge', ja: 'RustSecJP check — 危ない crate を、マージの前に' },
-      roles: { en: ['Malicious & vulnerable crates', 'Typosquat warnings', 'PR comments in Japanese', 'Rust'], ja: ['悪性・脆弱性のある crate', '似た名前の注意', '日本語で PR にコメント', 'Rust'] },
-    },
-    {
       id: 'unforge',
       icon: '/images/logos/org-rustsecjp.png',
       url: 'https://github.com/RustSecJP/unforge',
@@ -177,15 +168,6 @@ export const featured = {
       tags: { en: ['Window manager', 'Linux'], ja: ['ウィンドウ管理', 'Linux'] },
       title: { en: 'liwin — i3-style tiling for GNOME', ja: 'liwin — GNOME に、i3 風のタイル配置を' },
       roles: { en: ['Keyboard-driven', 'D-Bus daemon', 'GNOME Shell extension', 'Rust · TypeScript'], ja: ['キーボードで操作', 'D-Bus のデーモン', 'GNOME Shell の拡張', 'Rust・TypeScript'] },
-    },
-    {
-      id: 'wpware',
-      icon: '/images/projects/wpware-icon.svg',
-      url: 'https://github.com/hina-kura49/wpware',
-      media: { kind: 'scene', scene: 'wpware' },
-      tags: { en: ['Malware scanner', 'WordPress'], ja: ['マルウェアスキャナー', 'WordPress'] },
-      title: { en: 'WPware — Find the backdoor hiding in your WordPress', ja: 'WPware — WordPress に潜むバックドアを、見つけ出す' },
-      roles: { en: ['Official checksum verification', 'Web shell detection', 'Deobfuscation', 'Rust'], ja: ['公式チェックサムとの照合', 'Web シェルの検知', '難読化をほどく', 'Rust'] },
     },
   ] as {
     id: string; icon: string; url: string; soon?: boolean

@@ -34,7 +34,7 @@ test('single page: sections, language switch, works and no detail pages', async 
   for (const name of ['About Me', 'Now', 'Projects', 'Organizations', 'Open Source', 'Translate', 'Contact']) {
     await expect(page.getByRole('heading', { name, exact: true })).toBeVisible()
   }
-  await expect(page.locator('.work')).toHaveCount(6)
+  await expect(page.locator('.work')).toHaveCount(4)
   await expect(page.locator('.tr-item')).toHaveCount(33)
   await expect(page.locator('.org-card')).toHaveCount(3)
   await expect(page.locator('.client-track li')).toHaveCount(30)
