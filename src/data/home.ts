@@ -89,8 +89,8 @@ export const ossResearch: { id: string; name: string; logo?: string; counted?: b
 // Penetration testing clients (listed with each company's permission). Logos only, no names.
 export const clients = {
   label: { en: 'Penetration Testing', ja: 'ペネトレーションテスト' },
-  heading: { en: 'Trusted to test their websites', ja: 'Web サイトの診断を任されています' },
-  note: { en: 'Trusted by companies for web security assessments.', ja: '企業の Web サイトのセキュリティ診断を担当しています。' },
+  heading: { en: 'Trusted to test web, mobile and applications', ja: 'Web・スマホアプリ・アプリケーションの診断を任されています' },
+  note: { en: 'Trusted by companies for penetration testing of web apps, mobile apps and other applications.', ja: '企業の Web アプリ・スマホアプリ・アプリケーションのペネトレーションテストを担当しています。' },
   unit: { en: 'companies', ja: '社' },
   items: [
     { id: 'c01', logo: '/images/clients/c01.png' },
@@ -106,6 +106,7 @@ export const clients = {
     { id: 'c11', logo: '/images/clients/c11.png' },
     { id: 'c12', logo: '/images/clients/c12.png' },
     { id: 'c13', logo: '/images/clients/c13.png' },
+    { id: 'c14', logo: '/images/clients/c14.png' },
     { id: 'c15', logo: '/images/clients/c15.png' },
     { id: 'c16', logo: '/images/clients/c16.png' },
   ] as { id: string; logo: string }[],
